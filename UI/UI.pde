@@ -59,16 +59,16 @@ void setup() {
 
   // 【シリアル通信の初期設定】
   // 実機を接続する場合はコメントアウトを解除・ポート番号を合わせる
-  /*
+  
   try {
-    String portName = Serial.list()[0]; // 使用するポートを選択
+    String portName = "/dev/cu.usbmodem34B7DA6196202"; // 使用するポートを選択
     myPort = new Serial(this, portName, 9600);
     myPort.bufferUntil('\n'); // 改行コードが来るまでデータを溜める
     isSerialConnected = true;
   } catch (Exception e) {
     println("シリアルポートが見つかりません．シミュレーションモードで起動します．");
   }
-  */
+  
 
   resetOrder();
 }
@@ -371,7 +371,6 @@ void sendParametersToMaster() {
     println("  ├ オクターブ  : " + octave + "（国際式）→ 送信値 '" + nf(octave + 1, 2) + "'");
     println("  ├ 演奏順      : " + packet.substring(2, 5) + "  （ピアノ・フルート・木琴の演奏順）");
     println("  └ BPM         : " + bpm + " → '" + packet.substring(5, 8) + "'");
-    println("  ※ 2回目以降のBPMテンポ管理はMaster Arduino側が行います");
 
     if (isSerialConnected) {
       myPort.write(packet);
@@ -386,7 +385,6 @@ void sendParametersToMaster() {
 
     println("【送信パケット（BPM更新 3桁）】: " + packet.trim());
     println("  └ BPM         : " + bpm + " → '" + packet.substring(0, 3) + "'");
-    println("  ※ 本送信は 2回目以降のBPM変更用パケットです");
 
     if (isSerialConnected) {
       myPort.write(packet);

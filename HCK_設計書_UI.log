@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.uptex) (TeX Live 2025) (preloaded format=uplatex 2025.4.24)  23 JUN 2026 23:01
+This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.uptex) (TeX Live 2025) (preloaded format=uplatex 2025.4.24)  23 JUN 2026 23:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -929,23 +929,16 @@ pLaTeX2e <2023-02-14u04>+1, based on
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-03-26>
  ***********
-
-
-Package rerunfilecheck Warning: File `HCK_設計書_UI.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `HCK_設計書_UI.out':
-(rerunfilecheck)             Before: A9D7DF3A3EFF925A1DC492F3A24C5E62;1421
-(rerunfilecheck)             After:  E97831AE256342200E986296A2FBEB45;975.
+Package rerunfilecheck Info: File `HCK_設計書_UI.out' has not changed.
+(rerunfilecheck)             Checksum: E97831AE256342200E986296A2FBEB45;975.
  ) 
 Here is how much of TeX's memory you used:
- 20943 strings out of 470271
- 342790 string characters out of 5486374
+ 20935 strings out of 470271
+ 342707 string characters out of 5486374
  888949 words of memory out of 5000000
- 47486 multiletter control sequences out of 15000+600000
+ 47478 multiletter control sequences out of 15000+600000
  777394 words of font info for 217 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
  92i,11n,103p,1454b,1025s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on HCK_設計書_UI.dvi (7 pages, 24884 bytes).
+Output written on HCK_設計書_UI.dvi (7 pages, 24416 bytes).

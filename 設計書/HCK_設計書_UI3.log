@@ -1,9 +1,9 @@
-This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.uptex) (TeX Live 2025) (preloaded format=uplatex 2025.4.24)  28 JUN 2026 16:07
+This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.uptex) (TeX Live 2025) (preloaded format=uplatex 2025.4.24)  30 JUN 2026 00:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**HCK_設計書_UI2.tex
-(./HCK_設計書_UI2.tex
+**HCK_設計書_UI3.tex
+(./HCK_設計書_UI3.tex
 pLaTeX2e <2023-02-14u04>+1, based on
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-03-26>
@@ -711,8 +711,15 @@ LaTeX Font Info:    Trying to load font information for T1+stix2 on input line
 (/usr/local/texlive/2025/texmf-dist/tex/latex/stix2-type1/t1stix2.fd
 File: t1stix2.fd 2018/04/02 v2.0.0-latex stix2 T1 font definitions
 )
-(./HCK_設計書_UI2.aux)
-\openout1 = `HCK_設計書_UI2.aux'.
+(./HCK_設計書_UI3.aux
+
+LaTeX Warning: Label `fig:1-10' multiply defined.
+
+
+LaTeX Warning: Label `fig:1-11' multiply defined.
+
+)
+\openout1 = `HCK_設計書_UI3.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
 LaTeX Font Info:    ... okay on input line 48.
@@ -735,8 +742,7 @@ LaTeX Font Info:    ... okay on input line 48.
 LaTeX Font Info:    Checking defaults for LS1/stix2/m/n on input line 48.
 LaTeX Font Info:    Trying to load font information for LS1+stix2 on input line
  48.
-
-(/usr/local/texlive/2025/texmf-dist/tex/latex/stix2-type1/ls1stix2.fd
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/stix2-type1/ls1stix2.fd
 File: ls1stix2.fd 2018/04/02 v2.0.0-latex stix2 LS1 font definitions
 )
 LaTeX Font Info:    ... okay on input line 48.
@@ -774,9 +780,9 @@ Package graphics Info: Driver file: dvipdfmx.def on input line 106.
 )
 Package hyperref Info: Link coloring OFF on input line 48.
 
-(./HCK_設計書_UI2.out) (./HCK_設計書_UI2.out)
+(./HCK_設計書_UI3.out) (./HCK_設計書_UI3.out)
 \@outlinefile=\write3
-\openout3 = `HCK_設計書_UI2.out'.
+\openout3 = `HCK_設計書_UI3.out'.
 
 \c@lstlisting=\count339
 LaTeX Font Info:    Font shape `JT2/hmc/m/n' will be
@@ -898,21 +904,6 @@ LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
 (Font)              using `JY2/hmc/bx/n' instead on input line 118.
 
 
-Overfull \hbox (4.64174pt too wide) in paragraph at lines 118--118
-[]|[]|  
- []
-
-
-Overfull \hbox (4.64174pt too wide) in paragraph at lines 118--118
-[]|[]|  
- []
-
-
-Overfull \hbox (24.64174pt too wide) in paragraph at lines 118--118
-[]|[]|  
- []
-
-
 
 [2]
 
@@ -927,11 +918,7 @@ LaTeX Font Info:    Font shape `JY2/hgt/bx/n' will be
 (Font)              scaled to size 10.0pt on input line 127.
 File: fig/UIgamen.png Graphic file (type bmp)
 <fig/UIgamen.png>
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-39.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
+
 
 [4]
 
@@ -963,221 +950,180 @@ File: fig/BearWindowFro.pdf Graphic file (type pdf)
 [7]
 
 [8]
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 3
+94.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
 
 [9]
-File: fig/zentaiFro2.pdf Graphic file (type pdf)
-<fig/zentaiFro2.pdf>
+File: fig/UIzentaiFro.pdf Graphic file (type pdf)
+<fig/UIzentaiFro.pdf>
+File: fig/BearWindowzentaiFro.pdf Graphic file (type pdf)
+<fig/BearWindowzentaiFro.pdf>
 
 
 [10]
-
-LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
-(Font)              using `JY2/hmc/bx/n' instead on input line 444.
+Overfull \vbox (21.87007pt too high) has occurred while \output is active []
 
 
-LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
-(Font)              using `JY2/hmc/bx/n' instead on input line 444.
-
-
-LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
-(Font)              using `JY2/hmc/bx/n' instead on input line 444.
-
-
-LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
-(Font)              using `JY2/hmc/bx/n' instead on input line 444.
-
-
-LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
-(Font)              using `JY2/hmc/bx/n' instead on input line 444.
-
-
-LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
-(Font)              using `JY2/hmc/bx/n' instead on input line 444.
-
-
-LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
-(Font)              using `JY2/hmc/bx/n' instead on input line 444.
-
-
-LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
-(Font)              using `JY2/hmc/bx/n' instead on input line 444.
-
-
-Overfull \hbox (10.75189pt too wide) in paragraph at lines 444--444
- []|\T1/stix2/m/n/8.99994 sendParametersToMaster| 
- []
 
 [11]
 
-[12]
-
-Package array Warning: Column M is already defined on input line 450.
-
-
-Package array Warning: Column Y is already defined on input line 451.
+LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
+(Font)              using `JY2/hmc/bx/n' instead on input line 477.
 
 
 LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
-(Font)              using `JY2/hmc/bx/n' instead on input line 491.
+(Font)              using `JY2/hmc/bx/n' instead on input line 477.
 
 
 LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
-(Font)              using `JY2/hmc/bx/n' instead on input line 491.
+(Font)              using `JY2/hmc/bx/n' instead on input line 477.
 
 
 LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
-(Font)              using `JY2/hmc/bx/n' instead on input line 491.
+(Font)              using `JY2/hmc/bx/n' instead on input line 477.
 
 
 LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
-(Font)              using `JY2/hmc/bx/n' instead on input line 491.
+(Font)              using `JY2/hmc/bx/n' instead on input line 477.
 
 
 LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
-(Font)              using `JY2/hmc/bx/n' instead on input line 491.
+(Font)              using `JY2/hmc/bx/n' instead on input line 477.
 
 
 LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
-(Font)              using `JY2/hmc/bx/n' instead on input line 491.
+(Font)              using `JY2/hmc/bx/n' instead on input line 477.
 
 
 LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
-(Font)              using `JY2/hmc/bx/n' instead on input line 491.
+(Font)              using `JY2/hmc/bx/n' instead on input line 477.
 
 
 LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
-(Font)              using `JY2/hmc/bx/n' instead on input line 491.
+(Font)              using `JY2/hmc/bx/n' instead on input line 477.
 
 
-Overfull \hbox (2.24951pt too wide) in paragraph at lines 491--491
- []|\T1/stix2/m/n/8.99994 applyObstaclePenalty| 
+Overfull \hbox (13.59734pt too wide) in paragraph at lines 477--477
+ []|\T1/stix2/m/n/8.99994 sendParametersToMaster| 
  []
 
-[13]
 
-Package array Warning: Column M is already defined on input line 501.
+LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
+(Font)              using `JY2/hmc/bx/n' instead on input line 477.
+
+[12] [13]
+
+Package array Warning: Column M is already defined on input line 487.
 
 
-Package array Warning: Column Y is already defined on input line 502.
+Package array Warning: Column Y is already defined on input line 488.
 
 
 LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
-(Font)              using `JY2/hmc/bx/n' instead on input line 528.
+(Font)              using `JY2/hmc/bx/n' instead on input line 540.
 
 
 LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
-(Font)              using `JY2/hmc/bx/n' instead on input line 528.
+(Font)              using `JY2/hmc/bx/n' instead on input line 540.
 
 
 LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
-(Font)              using `JY2/hmc/bx/n' instead on input line 528.
+(Font)              using `JY2/hmc/bx/n' instead on input line 540.
 
 
 LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
-(Font)              using `JY2/hmc/bx/n' instead on input line 528.
+(Font)              using `JY2/hmc/bx/n' instead on input line 540.
 
 
 LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
-(Font)              using `JY2/hmc/bx/n' instead on input line 528.
+(Font)              using `JY2/hmc/bx/n' instead on input line 540.
 
 
 LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
-(Font)              using `JY2/hmc/bx/n' instead on input line 528.
+(Font)              using `JY2/hmc/bx/n' instead on input line 540.
 
 
 LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
-(Font)              using `JY2/hmc/bx/n' instead on input line 528.
+(Font)              using `JY2/hmc/bx/n' instead on input line 540.
 
 
 LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
-(Font)              using `JY2/hmc/bx/n' instead on input line 528.
-
-[14]
-
-[15]
-
-Package array Warning: Column M is already defined on input line 534.
-
-
-Package array Warning: Column Y is already defined on input line 535.
+(Font)              using `JY2/hmc/bx/n' instead on input line 540.
 
 
 LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
-(Font)              using `JY2/hmc/bx/n' instead on input line 576.
+(Font)              using `JY2/hmc/bx/n' instead on input line 540.
 
 
 LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
-(Font)              using `JY2/hmc/bx/n' instead on input line 576.
+(Font)              using `JY2/hmc/bx/n' instead on input line 540.
 
 
-LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
-(Font)              using `JY2/hmc/bx/n' instead on input line 576.
-
-
-LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
-(Font)              using `JY2/hmc/bx/n' instead on input line 576.
-
-
-LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
-(Font)              using `JY2/hmc/bx/n' instead on input line 576.
-
-
-LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
-(Font)              using `JY2/hmc/bx/n' instead on input line 576.
-
-
-LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
-(Font)              using `JY2/hmc/bx/n' instead on input line 576.
-
-
-LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
-(Font)              using `JY2/hmc/bx/n' instead on input line 576.
-
-
-Overfull \hbox (3.88501pt too wide) in paragraph at lines 576--576
+Overfull \hbox (3.88501pt too wide) in paragraph at lines 540--540
  []|\T1/stix2/m/n/8.99994 BEAR_FOOT_OFFSET| 
  []
 
 
-Overfull \hbox (2.92201pt too wide) in paragraph at lines 576--576
+Overfull \hbox (2.92201pt too wide) in paragraph at lines 540--540
  []|\T1/stix2/m/n/8.99994 TREE_FOOT_OFFSET| 
  []
 
 
-Overfull \hbox (24.85481pt too wide) in paragraph at lines 576--576
+Overfull \hbox (24.85481pt too wide) in paragraph at lines 540--540
  []|\T1/stix2/m/n/8.99994 OBSTACLE_FOOT_OFFSET| 
  []
 
 
-Overfull \hbox (33.50127pt too wide) in paragraph at lines 576--576
+Overfull \hbox (33.50127pt too wide) in paragraph at lines 540--540
  []|\T1/stix2/m/n/8.99994 BEAR_STATE_WALK| 
  []
 
 
-Overfull \hbox (1.92955pt too wide) in paragraph at lines 576--576
+Overfull \hbox (1.92955pt too wide) in paragraph at lines 540--540
  []|\T1/stix2/m/n/8.99994 MAX_JUMPS| 
  []
 
 
 
+[14] [15]
+LaTeX Font Info:    Trying to load font information for TS1+stix2 on input line
+ 545.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/stix2-type1/ts1stix2.fd
+File: ts1stix2.fd 2018/04/02 v2.0.0-latex stix2 TS1 font definitions
+)
+
+LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
+(Font)              using `JY2/hmc/bx/n' instead on input line 545.
+
+File: fig/HCK01_kairo.pdf Graphic file (type pdf)
+<fig/HCK01_kairo.pdf>
+
+
 [16]
 
-[17] (./HCK_設計書_UI2.aux)
+[17] (./HCK_設計書_UI3.aux)
  ***********
 pLaTeX2e <2023-02-14u04>+1, based on
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-03-26>
  ***********
-Package rerunfilecheck Info: File `HCK_設計書_UI2.out' has not changed.
-(rerunfilecheck)             Checksum: 1386F4EA9B0C7F156C313C7AD19B7638;1388.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package rerunfilecheck Info: File `HCK_設計書_UI3.out' has not changed.
+(rerunfilecheck)             Checksum: 65D65324391BF1189A6BF81A8C69803C;1450.
  ) 
 Here is how much of TeX's memory you used:
- 21103 strings out of 470271
- 345688 string characters out of 5486374
- 927517 words of memory out of 5000000
- 47636 multiletter control sequences out of 15000+600000
- 777713 words of font info for 218 fonts, out of 8000000 for 9000
+ 21138 strings out of 470271
+ 346571 string characters out of 5486374
+ 955517 words of memory out of 5000000
+ 47665 multiletter control sequences out of 15000+600000
+ 778054 words of font info for 219 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
- 92i,11n,103p,1407b,1025s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 92i,15n,103p,1455b,1025s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on HCK_設計書_UI2.dvi (17 pages, 71472 bytes).
+Output written on HCK_設計書_UI3.dvi (17 pages, 71440 bytes).

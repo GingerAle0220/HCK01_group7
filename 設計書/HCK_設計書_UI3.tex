@@ -77,7 +77,7 @@
   \renewcommand{\arraystretch}{1.2}
 
   \begin{tabularx}{\linewidth}
-    {|>{\raggedright\arraybackslash}p{3.0cm}
+    {|>{\centering\arraybackslash}p{3.4cm}
      |>{\raggedright\arraybackslash}X|}
     \hline
     \textbf{区分} & \textbf{内容} \\ \hline
@@ -94,7 +94,7 @@
       & ↑／↓キーによるBPM変更，1\UTF{FF5E}3キーによる演奏順登録 \\ \cline{2-2}
       & 設定送信，順番リセット，オクターブ変更ボタンの操作 \\ \hline
 
-    \multirow{3}{*}{演奏制御ロック機能}
+    \multirow{3}{*}{\shortstack{演奏制御\\ロック機能}}
       & Masterから演奏開始通知（START）を受信した時点でBPM以外の操作を即座にロック \\ \cline{2-2}
       & Masterから演奏終了通知（FINISH）を受信した時点でロックを解除し，編集可能状態へ復帰 \\ \cline{2-2}
       & 実機未接続時の動作確認用として，[s]キー押下によるロック解除を仮実装 \\ \hline
@@ -103,11 +103,11 @@
       & オクターブ・演奏順・BPMを含む初期設定情報の生成 \\ \cline{2-2}
       & 初回の設定送信および演奏中のBPM変更送信 \\ \hline
 
-    \multirow{2}{*}{共通ユーティリティ}
+    \multirow{2}{*}{\shortstack{共通\\ユーティリティ}}
       & ボタン領域のホバー判定 \\ \cline{2-2}
       & 演奏順および選択状態の初期化 \\ \hline
 
-    \multirow{6}{*}{クマアニメーション機能}
+    \multirow{6}{*}{\shortstack{クマアニメー\\ション機能}}
       & ドット絵画像（歩行2種・ジャンプ・ダメージ）によるクマの表示と状態切替 \\ \cline{2-2}
       & BPMに連動したスクロール速度の制御（空・地面・雲・木・コイン・障害物） \\ \cline{2-2}
       & [Space]キーによるジャンプ操作とコイン収集 \\ \cline{2-2}
@@ -130,13 +130,13 @@
     \makebox[0pt][c]{
     \includegraphics[width=130mm]{fig/UIgamen.png}
     }
-    \caption{実際のProcessingのUI画面}
+    \caption{ProcessingのUI画面のプロトタイプ}
     \label{fig:1-5}
 \end{figure}
 
 
-図\ref{fig:1-5}に本システムの実際のUI画面，表\ref{tab:1-4}にUI画面上の主要な操作要素と，それぞれの操作方法および演奏中の挙動を示す．
-本システムのUI画面は，BPM設定エリア，演奏順番設定エリア，共通オクターブ設定エリアの3つの操作領域と，画面右上に配置した設定確定・送信ボタンから構成される．各操作領域は，演奏中であるかどうかを示すフラグ\texttt{isPlaying}の状態に応じて編集可否が切り替わり，ロック中は背景色を淡いグレーに変化させるとともに，該当ボタンを非活性表示にすることで，操作可能な項目を視覚的に明示している．
+図\ref{fig:1-5}に本システムの実際のUI画面のプロトタイプ，表\ref{tab:1-4}にUI画面上の主要な操作要素と，それぞれの操作方法および演奏中の挙動を示す．
+本システムのUI画面は，BPM設定エリア，演奏順番設定エリア，共通オクターブ設定エリアの3つの操作領域と，画面右上に配置した設定確定・送信ボタンから構成される．各操作領域は，現在演奏中であるかどうかに応じて編集可否が切り替わり，ロック中は背景色を淡いグレーに変化させるとともに，該当ボタンを非活性表示にすることで，操作可能な項目を視覚的に明示している．
 BPM設定エリアでは，キーボードの[$\uparrow$]キーを押すたびにBPMを$10$加算し，[$\downarrow$]キーを押すたびに$10$減算する．BPMは$30$から$180$の範囲に制限されており，この範囲を超える入力は無視される．BPMのみは演奏中であっても変更を許可しており，テンポを動的に調整できる設計としている．
 演奏順番設定エリアでは，楽器番号に対応するキー（[1]：ピアノ，[2]：フルート，[3]：木琴）を押した順に演奏順を確定する．ドラムは演奏開始から常時演奏されるため，演奏順設定の対象から除外している．設定した順番は画面中央に「1番手」「2番手」「3番手」の形式で表示され，未選択の楽器は「未選択」と表示される．また，画面右側に配置した順番リセットボタン（クリック操作）を押すことで，演奏順番の選択状態を初期化できる．演奏中はこの操作領域全体がロックされ，キー入力を受け付けないとともに，リセットボタンの表示も「ロック中」に変化する．
 共通オクターブ設定エリアでは，画面下部に配置した[$\blacktriangle$]ボタンおよび[$\blacktriangledown$]ボタンのクリック操作によってオクターブを1ずつ変更する．オクターブは国際式表記で$-1$から$9$の範囲とし，上限・下限を超える操作は無視される．演奏中はオクターブの加減ボタンが非活性表示となり，変更できない状態になる．
@@ -198,9 +198,9 @@ BPM設定エリアでは，キーボードの[$\uparrow$]キーを押すたび�
     \label{fig:1-6}
 \end{wrapfigure}
 
-図\ref{fig:1-6}に，ProcessingからMasterへの送信処理における状態遷移を示す．Processing側では，待機中の状態においてBPM，演奏順，オクターブの各設定を受け付け，設定確定・送信操作が行われた時点でパケット生成処理へ遷移する．オクターブは$-1$〜$9$の範囲で入力し，送信時には$00$〜$10$の2桁固定長文字列に変換する．演奏順は楽器1〜3に対応するキー入力をもとに3桁の文字列として保持し，BPMは$30$〜$180$の範囲で3桁固定長の値として扱う．これらの値は\texttt{buildPacket()}によりエンコードされ，Masterへ送信可能な形式に整形される．
-送信処理では，初回送信時と2回目以降で通信内容を切り替える．初回送信では，オクターブ，演奏順，BPMを含む8バイトの初回設定パケットに改行を付加して送信する．一方，2回目以降はBPMのみを3バイトの差分パケットとして送信し，演奏中の通信負荷を抑制する．この分岐は，初回設定済みかどうかを示すフラグによって管理する．
-また，Processing側ではMasterからの応答を\texttt{serialEvent()}で受信し，状態に応じてUIロック制御を行う．Masterから\texttt{START}を受信した場合は演奏中のロック状態へ移行し，演奏順およびオクターブの変更を禁止する．\texttt{FINISH}を受信した場合はロックを解除し，再び待機中の編集可能状態へ戻る．この制御により，演奏中の誤操作を防ぎつつ，BPMのみを動的に変更できる入力インタフェースを実現している．
+図\ref{fig:1-6}に，ProcessingからMasterへの送信処理における状態遷移を示す．Processing側では，待機中の状態においてBPM，演奏順，オクターブの各設定を受け付け，設定確定・送信操作が行われた時点でパケット生成処理へ遷移する．オクターブは$-1$〜$9$の範囲で入力し，送信時には$00$〜$10$の2桁固定長文字列に変換する．演奏順は楽器1〜3に対応するキー入力をもとに3桁の文字列として保持し，BPMは$30$〜$180$の範囲で3桁固定長の値として扱う．これらの値はオクターブ2桁・演奏順3桁・BPM3桁の順に連結し，Masterへ送信可能な固定長の文字列形式に整形する．
+送信処理では，初回送信時と2回目以降で通信内容を切り替える．初回送信では，オクターブ，演奏順，BPMを含む8バイトの初回設定パケットに改行を付加して送信する．一方，2回目以降はBPMのみを3バイトの差分パケットとして送信し，演奏中の通信負荷を抑制する．この分岐は，初回の設定送信が完了したかどうかを内部で記憶しておくことで管理する．
+また，Processing側ではMasterからの応答をシリアル受信イベントとして受け取り，状態に応じてUIロック制御を行う．Masterから演奏開始の通知（START）を受信した場合は演奏中のロック状態へ移行し，演奏順およびオクターブの変更を禁止する．演奏終了の通知（FINISH）を受信した場合はロックを解除し，再び待機中の編集可能状態へ戻る．この制御により，演奏中の誤操作を防ぎつつ，BPMのみを動的に変更できる入力インタフェースを実現している．
 
 \newpage
 
@@ -211,7 +211,7 @@ BPM設定エリアでは，キーボードの[$\uparrow$]キーを押すたび�
     \makebox[0pt][c]{
     \includegraphics[width=130mm]{fig/BearWindow.png}
     }
-    \caption{クマアニメーション（BearWindow）の表示画面}
+    \caption{クマアニメーション（BearWindow）の表示画面のプロトタイプ}
     \label{fig:1-10}
 \end{figure}
 
@@ -223,12 +223,12 @@ BPM設定エリアでは，キーボードの[$\uparrow$]キーを押すたび�
     \label{fig:1-11}
 \end{wrapfigure}
 
-図\ref{fig:1-10}に，演奏中に表示されるクマアニメーションウィンドウの画面，図\ref{fig:1-11}にクマアニメーションの状態遷移図を示す．本ウィンドウは\texttt{BearWindow}クラスとして実装され，\texttt{PApplet.runSketch()}によりUI.pdeの\texttt{setup()}内で指揮者UIとは別プロセス・別ウィンドウとして起動される．毎フレーム，UI.pde側の\texttt{draw()}から\texttt{bearWin.bearBpm}および\texttt{bearWin.bearPlaying}へ現在のBPMと演奏中フラグが書き込まれ，BearWindow側はこれらの値のみを参照して描画とゲーム進行を行う一方向の同期構成となっている．
-描画する画像（クマの歩行2種・ジャンプ・ダメージ，および空・地面・雲2種・木2種・石）はすべてドット絵のPNGとして用意し，UI.pde側の\texttt{setup()}内で\texttt{loadImage()}により読み込んだ後，\texttt{bearWin}の各フィールドへ代入してから\texttt{runSketch()}を呼び出している．これは，\texttt{runSketch()}で起動する別ウィンドウ内で直接\texttt{loadImage()}を行うと，セカンドアプレットの\texttt{sketchPath}がスケッチフォルダを正しく指さない場合があり，特にProcessing IDEの実行ボタンから起動した際に画像が読み込めず\texttt{null}になる既知の不具合を回避するための実装上の工夫である．
-BearWindow内の処理は，\texttt{updateWorld()}による状態更新と，\texttt{draw()}による描画の2段に分かれる．\texttt{updateWorld()}では，現在のBPMから\texttt{getScrollSpeed()}を用いてスクロール速度を算出し，雲・木・地面・コイン・障害物の座標を毎フレーム更新する．スクロール速度はBPMに比例して増加するため，演奏のテンポが速いほどクマの歩行アニメーションおよび背景の流れが速くなり，テンポ感を視覚的に提示できる．地面（\texttt{ground.png}）は画像幅から1pxのオーバーラップ量を差し引いた間隔で水平方向にタイル状に並べ，\texttt{groundScrollX}を用いて連続的にループ表示することで，継ぎ目を視認させずに無限スクロールしているように見せている．
-クマの状態は，\texttt{bearState}（歩行／ジャンプ／ダメージ）によって管理され，\texttt{updateBearState()}が毎フレーム呼び出されて現在の状態を判定する．ダメージ状態は障害物衝突直後の\texttt{hitFlash}が残っている間，ジャンプ状態は\texttt{bearJumpY}が0未満（空中にある）間とし，それ以外は歩行状態として\texttt{legAngle}の位相に応じて2種類の歩行画像を交互に表示する．ジャンプは\texttt{triggerJump()}がUI.pde側のスペースキー押下イベントから呼び出されることで発火し，\texttt{JUMP\_VELOCITY}を初期速度として\texttt{updateJump()}内で重力\texttt{GRAVITY}を用いた放物運動として処理する．
-当たり判定は，描画に用いる画像のサイズとは独立したオブジェクトとして実装している．クマについては，画像の中心点（\texttt{bearHitCenterX()}，\texttt{bearHitCenterY()}）を中心とする半径\texttt{BEAR\_HIT\_RADIUS}の円を当たり判定として用い，コイン収集は円と点の距離判定，障害物との衝突は円と矩形の判定関数\texttt{circleRectOverlap()}によって行う．これにより，見た目の画像サイズを変更しても当たり判定の挙動に影響を与えずに済む設計としている．コインを収集すると獲得コイン数\texttt{currentRunScore}が加算され，障害物に接触すると一定数減算されるとともに，\texttt{collisionCooldown}による短時間の無敵時間を設けて連続減算を防いでいる．
-演奏が開始されると，BearWindow側の\texttt{draw()}が\texttt{bearPlaying}の立ち上がり（前フレームまでfalseで今回trueになった瞬間）を検知して自動的に\texttt{startRun()}を呼び出し，ランの初期化と集計を開始する．演奏終了時には，UI.pde側の\texttt{completeCurrentRun()}からBearWindow側の\texttt{completeRun()}が呼び出され，当該ランのスコアをランキング配列\texttt{rankingScores}へ挿入する．UI.pde側は\texttt{hasResult()}でランの結果有無を確認し，結果がある場合は\texttt{drawRunResultPanel()}によって獲得コインとランキングを指揮者UI画面上に表示する．
+図\ref{fig:1-10}に，演奏中に表示されるクマアニメーションウィンドウの画面のプロトタイプ，図\ref{fig:1-11}にクマアニメーションの状態遷移図を示す．本ウィンドウは指揮者UIとは同一プロセス・別ウィンドウとして，指揮者UIの起動時に同時に立ち上げる構成とした．これにより，1つの操作（演奏開始）に対して，指揮者UI画面とクマアニメーション画面という2つの表示が独立して並行に動作する．両者の連携は一方向のみとし，毎フレーム指揮者UI側から現在のBPMと演奏中かどうかの状態をクマアニメーション側へ渡し，クマアニメーション側はこれらの値だけを参照して描画とゲーム進行を行う．逆方向（クマアニメーション側から指揮者UI側）への影響は，ランの結果（獲得コインとランキング）の通知のみに限定し，システム全体の制御がクマアニメーションの都合で乱れないようにしている．
+描画する画像（クマの歩行2種・ジャンプ・ダメージ，および空・地面・雲2種・木2種・石）はすべてドット絵のPNGとして用意した．これらの画像は指揮者UI側でまとめて読み込んだうえでクマアニメーション側に渡し，クマアニメーション側では画像の読込み処理を行わない方針とした．これは，クマアニメーション側のウィンドウ内で直接画像を読み込むと，実行環境によっては画像ファイルの参照先を正しく認識できず，読込みに失敗する場合があるためであり，読込み処理を1か所に集約することで，どの環境でも安定して起動できるようにするための工夫である．
+クマアニメーション内の処理は，毎フレームの状態更新と描画の2段階に分けて実装した．状態更新では，現在のBPMに応じてスクロール速度を決定し，雲・木・地面・コイン・障害物の位置を進める．スクロール速度はBPMに比例して大きくなるため，演奏のテンポが速いほどクマの歩行アニメーションおよび背景の流れが速くなり，テンポ感を視覚的に把握できる．地面の画像は横方向に連続して並べ，画面の左端まで流れた分を右端へ循環させることで，継ぎ目を視認させずに無限スクロールしているように見せている．
+操作はキーボードの[Space]キーのみであり，演奏中に[Space]キーを押すとクマがジャンプする．ジャンプは空中にいる間と接地している間で見た目を切り替え，重力を模した動きで自然に落下して着地する．クマの見た目は，歩行・ジャンプ・ダメージの3状態を毎フレーム判定して切り替え，歩行中はテンポに合わせて2種類の歩行画像を交互に表示する．障害物に接触した直後は一定時間ダメージの見た目に変化させ，連続してダメージを受けないよう短時間の無敵時間を設けている．
+当たり判定は，画面に表示する画像の見た目の大きさとは別に，クマ・コイン・障害物それぞれに専用の判定領域を設ける方式とした．クマの判定領域は画像のおおよその中心に置いた円形とし，コインとの当たり判定は距離による判定，障害物との当たり判定は円と四角形の重なり判定によって行う．この方式により，見た目の画像サイズを後から調整しても当たり判定の挙動に影響を与えずに済む．コインに触れると獲得コイン数が加算され，障害物に触れると獲得コイン数が一定数減算される．
+演奏が開始されると，クマアニメーション側はその変化を検知して今回分の得点集計（ラン）を自動的に開始する．演奏が終了すると，指揮者UI側からクマアニメーション側へ終了が通知され，当該ランの結果がランキングに登録される．指揮者UI側はクマアニメーション側に結果があるかどうかを確認し，結果がある場合は獲得コインとランキングを指揮者UI画面上にも表示する．
 
 \newpage
 
@@ -391,21 +391,29 @@ I2Cのプルアップ抵抗値は，I2Cバスの容量と立ち上がり時間�
 %全体の処理フローチャート，関数表，変数表，環境光のノイズ除去と閾値の設定について触れる
 
 \subsubsection{全体の処理フロー}
-システム全体のフローチャートを図\ref{fig:1-9}に示す．本処理は，Processingの起動時に\texttt{setup()}が実行され，シリアルポートを9600bpsで初期化するところから開始する．接続に成功した場合は\texttt{isSerialConnected}を\texttt{true}に設定し，失敗した場合はシミュレーションモードとして\texttt{isSerialConnected=false}のままUI初期化を完了する．続いて\texttt{setup()}内では，クマアニメーション用の別ウィンドウ\texttt{BearWindow}を生成し，クマおよび背景・地形・障害物に用いる11種類のドット絵画像をメインスケッチ側で\texttt{loadImage()}した上で\texttt{bearWin}へ受け渡し，最後に\texttt{PApplet.runSketch()}によってBearWindowを起動する．これにより，指揮者UIとクマアニメーションは同一プロセス内の2枚の独立したウィンドウとして並行に動作する構成となる．初期化完了後は\texttt{draw()}によるメインループに入り，UIの描画とユーザー操作の受付を毎フレーム繰り返すとともに，現在のBPMと演奏中フラグ\texttt{isPlaying}を\texttt{bearWin.bearBpm}，\texttt{bearWin.bearPlaying}へ書き込み，BearWindow側の描画内容と同期する．
+システム全体のフローチャートを図\ref{fig:1-9}，図\ref{fig:1-10}に示す．本処理は，Processingの起動時に\texttt{setup()}が実行され，シリアルポートを9600bpsで初期化するところから開始する．接続に成功した場合は\texttt{isSerialConnected}を\texttt{true}に設定し，失敗した場合はシミュレーションモードとして\texttt{isSerialConnected=false}のままUI初期化を完了する．続いて\texttt{setup()}内では，クマアニメーション用の別ウィンドウ\texttt{BearWindow}を生成し，クマおよび背景・地形・障害物に用いる11種類のドット絵画像をメインスケッチ側で\texttt{loadImage()}した上で\texttt{bearWin}へ受け渡し，最後に\texttt{PApplet.runSketch()}によってBearWindowを起動する．これにより，指揮者UIとクマアニメーションは同一プロセス内の2枚の独立したウィンドウとして並行に動作する構成となる．初期化完了後は\texttt{draw()}によるメインループに入り，UIの描画とユーザー操作の受付を毎フレーム繰り返すとともに，現在のBPMと演奏中フラグ\texttt{isPlaying}を\texttt{bearWin.bearBpm}，\texttt{bearWin.bearPlaying}へ書き込み，BearWindow側の描画内容と同期する．
 ユーザー操作は，BPM変更，演奏順設定，オクターブ変更，送信，ジャンプの5系統に分岐する．BPMは↑／↓キー入力により30〜180の範囲で更新される．演奏順は1〜3キー入力により設定されるが，\texttt{isPlaying=true}の間は変更できず，待機中のみ\texttt{playOrder[]}へ反映される．オクターブもボタンクリックによって-1〜9の範囲で更新されるが，同様に演奏中は操作を無効化する．スペースキーが押下されると，押し続け判定用フラグ\texttt{bearJumpKeyHeld}によって1回の押下につき1度だけ\texttt{bearWin.triggerJump()}が呼び出され，BearWindow側のクマがジャンプする．送信ボタンが押されると\texttt{sendParametersToMaster()}が呼び出され，Masterへの送信処理へ遷移する．
 送信処理では，\texttt{hasSentInitialPacket}の値によって初回送信と2回目以降の送信を切り替える．初回送信では，オクターブ2桁，演奏順3桁，BPM3桁を連結した初回パケットを\texttt{buildPacket()}で生成し，シリアル接続時はMasterへ送信する．送信完了後は\texttt{hasSentInitialPacket}を\texttt{true}に更新し，\texttt{isPlaying=true}としてUIをロックする．この\texttt{isPlaying}の変化はBearWindow側へ同期され，BearWindowの\texttt{draw()}が変化を検知して\texttt{startRun()}を呼び出すことで，今回のランを開始し，コイン・障害物・スコアを初期化したうえでBPMに応じたスクロール演出を開始する．2回目以降の送信はBPMのみを3桁で送信し，演奏中のテンポ変更に対応する．
 また，Masterからの状態通知は\texttt{serialEvent()}で受信する．\texttt{START}または\texttt{PLAYING}を受信した場合は\texttt{isPlaying=true}を維持してロック状態を継続し，\texttt{FINISH}または\texttt{STOP}を受信した場合は\texttt{completeCurrentRun()}を呼び出して\texttt{isPlaying=false}とするとともに，BearWindow側の\texttt{completeRun()}を実行してランを終了させ，獲得コインをランキングに登録する．シリアル未接続のシミュレーションモードでは，送信ボタン押下時に擬似的にロックし，sキー押下で同様に\texttt{completeCurrentRun()}を呼び出すことでランの終了を代替する．ランが終了すると，指揮者UI側では\texttt{drawRunResultPanel()}が毎フレーム\texttt{bearWin.hasResult()}を確認し，結果がある場合に獲得コインとランキングを画面上へ表示する．これにより，演奏中の設定変更を防ぎつつ，演奏終了後は再び設定入力が可能な状態へ戻るとともに，演奏のテンポに連動した視覚的な演出とその結果のフィードバックを実現している．
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=150mm]{fig/zentaiFro2.pdf}
-    \caption{UI，Masterへの送信制御およびクマアニメーション同期のフローチャート}
+    \includegraphics[width=150mm]{fig/UIzentaiFro.pdf}
+    \caption{UI，Masterへの送信制御フローチャート}
     \label{fig:1-9}
 \end{figure}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=130mm]{fig/BearWindowzentaiFro.pdf}
+    \caption{クマアニメーション同期のフローチャート}
+    \label{fig:1-10}
+\end{figure}
+
+
 \subsubsection{主要関数表}
 
-表\ref{tab:1-6-1}，表\ref{tab:1-6-2}に示した主要関数について，制御の流れに沿ってその役割を述べる．
+表\ref{tab:1-6-1}に示した主要関数について，制御の流れに沿ってその役割を述べる．
 UI.pdeの\texttt{setup()}では，シリアル接続の確立に続いて画像の読込みとBearWindowの起動を行う．\texttt{draw()}は毎フレーム呼び出される唯一の描画起点であり，UI各エリアの描画に加えて，\texttt{buildPacket()}による送信パケットのプレビュー表示，BearWindowへのBPM・演奏状態の同期，および\texttt{drawRunResultPanel()}による結果パネルの描画をまとめて行う．キー入力は\texttt{keyPressed()}と\texttt{keyReleased()}に分離されており，BPM変更，演奏順設定，ジャンプ発火，シミュレーション時の終了操作（sキー）をそれぞれ判定する．マウス操作は\texttt{mousePressed()}に集約され，送信ボタン，リセットボタン，オクターブ増減ボタンへのクリックをホバー判定関数\texttt{isHover()}を用いて検出する．
 ランの開始と終了は，UI.pde側の\texttt{completeCurrentRun()}と，BearWindow側の\texttt{startRun()}，\texttt{completeRun()}が対になって管理する．\texttt{completeCurrentRun()}は\texttt{isPlaying}の解除とBearWindowへの終了通知を1か所に集約するための関数であり，シリアル受信時とシミュレーション時の両方から呼び出される．BearWindow内部では，\texttt{updateWorld()}が毎フレームの状態更新（スクロール，ジャンプ，コイン・障害物判定，アニメーション状態）を統括し，\texttt{draw()}が背景・地形・コイン・障害物・クマ・HUDの描画を順に呼び出す．当たり判定は\texttt{isCoinCollected()}，\texttt{isObstacleHit()}，および円と矩形の判定を行う\texttt{circleRectOverlap()}によって実装し，画像のサイズに依存しない独立した判定オブジェクトとして扱う．
 
@@ -414,8 +422,8 @@ UI.pdeの\texttt{setup()}では，シリアル接続の確立に続いて画像�
 \newcolumntype{Y}{>{\centering\arraybackslash}X}
 
 {\small
-\begin{tabularx}{\textwidth}{|M{1.6cm}|M{3.0cm}|M{2.0cm}|Y|}
-    \caption{主要関数表（UI.pde）}\label{tab:1-6-1}\\
+\begin{tabularx}{\textwidth}{|M{1.6cm}|M{2.9cm}|M{2.1cm}|Y|}
+    \caption{主要関数表}\label{tab:1-6-1}\\
     \hline
     \textbf{戻り値} & \textbf{関数名} & \textbf{引数} & \textbf{役割} \\ \hline
     \endfirsthead
@@ -429,6 +437,7 @@ UI.pdeの\texttt{setup()}では，シリアル接続の確立に続いて画像�
     \hline
     \endlastfoot
 
+    \multicolumn{4}{|c|}{\textbf{UI.pde}} \\ \hline
     void & setup & なし & シリアル接続の確立，フォント設定，クマ画像群の読込み，BearWindowの起動を行う初期化関数． \\ \hline
     void & draw & なし & 毎フレーム呼び出され，UI各エリアの描画，BearWindowへのBPM・演奏状態の同期，結果パネルの描画をまとめて行う． \\ \hline
     void & keyPressed & なし & ↑／↓キーによるBPM変更，スペースキーによるジャンプ発火，1〜3キーによる演奏順設定，sキーによる終了操作を判定する． \\ \hline
@@ -441,29 +450,8 @@ UI.pdeの\texttt{setup()}では，シリアル接続の確立に続いて画像�
     void & drawRunResultPanel & なし & BearWindowにランの結果がある場合に，獲得コインとランキングを指揮者UI画面上へ描画する． \\ \hline
     String & buildPacket & なし & オクターブ・演奏順・BPMを8バイトの固定長文字列にエンコードする． \\ \hline
     void & sendParametersToMaster & なし & 初回は8バイトの初期パケット，以降はBPMのみの3バイトパケットをMasterへ送信する． \\ \hline
-\end{tabularx}
-}
 
-\renewcommand{\arraystretch}{1.25}
-\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
-\newcolumntype{Y}{>{\centering\arraybackslash}X}
-
-{\small
-\begin{tabularx}{\textwidth}{|M{1.6cm}|M{2.8cm}|M{2.3cm}|Y|}
-    \caption{主要関数表（BearWindow.pde）}\label{tab:1-6-2}\\
-    \hline
-    \textbf{戻り値} & \textbf{関数名} & \textbf{引数} & \textbf{役割} \\ \hline
-    \endfirsthead
-    \multicolumn{4}{c}{\tablename\ \thetable\ （続き）}\\
-    \hline
-    \textbf{戻り値} & \textbf{関数名} & \textbf{引数} & \textbf{役割} \\ \hline
-    \endhead
-    \hline
-    \multicolumn{4}{r}{次ページに続く}\\
-    \endfoot
-    \hline
-    \endlastfoot
-
+    \multicolumn{4}{|c|}{\textbf{BearWindow.pde}} \\ \hline
     void & setup & なし & フレームレートの固定，各オブジェクトの初期座標および種類（雲・木）の抽選，コイン・障害物・パーティクルの初期化を行う． \\ \hline
     void & draw & なし & 毎フレーム呼び出され，\texttt{updateWorld()}による状態更新の後，背景・地形・コイン・障害物・クマ・HUDを順に描画する． \\ \hline
     void & updateWorld & なし & BPMに応じたスクロール速度の算出，雲・木・地面・ジャンプ・コイン・障害物の状態更新をまとめて行う． \\ \hline
@@ -491,9 +479,9 @@ UI.pdeの\texttt{setup()}では，シリアル接続の確立に続いて画像�
 
 \subsubsection{主要変数および定数}
 
-表\ref{tab:1-7-1}，表\ref{tab:1-7-2}に示した主要変数および定数について，システム動作に果たす役割を述べる．
-UI.pde側（表\ref{tab:1-7-1}）では，現在のテンポを保持する\texttt{bpm}，演奏順を保持する\texttt{playOrder[]}，共通オクターブを保持する\texttt{octave}が，送信パケットを構成する中核の変数である．これらは演奏中フラグ\texttt{isPlaying}の状態に応じて変更可否が切り替わり，\texttt{isPlaying}自体はMasterからのシリアル受信または\texttt{completeCurrentRun()}の呼び出しによって更新される．BearWindowとの連携は，参照を保持する\texttt{bearWin}と，スペースキーの押し続けを管理する\texttt{bearJumpKeyHeld}によって行われる．
-BearWindow.pde側（表\ref{tab:1-7-2}）では，BPMに対するスクロール速度の基準となる\texttt{BASE\_BPM}，\texttt{BASE\_SPEED}と，ジャンプの物理特性を決める\texttt{GRAVITY}，\texttt{JUMP\_VELOCITY}，\texttt{MAX\_JUMPS}が描画・操作の基準値となる．クマの位置は\texttt{BEAR\_X}，\texttt{BEAR\_GROUND\_Y}を基準座標とし，画像の見た目と当たり判定の中心とのずれを\texttt{BEAR\_FOOT\_OFFSET}，\texttt{TREE\_FOOT\_OFFSET}，\texttt{OBSTACLE\_FOOT\_OFFSET}で補正する．当たり判定の半径は\texttt{BEAR\_HIT\_RADIUS}として見た目の画像サイズより小さく設定し，判定の公平性を保っている．コイン・障害物・パーティクルはそれぞれ固定長配列（\texttt{coinX[]}等，\texttt{obstacleX[]}等，\texttt{scatterX[]}等）で位置と状態を管理し，配列長は\texttt{COIN\_COUNT}，\texttt{OBSTACLE\_COUNT}，\texttt{SCATTER\_COUNT}によって定める．スコア関連では，現在のランで獲得したコイン数を\texttt{currentRunScore}，過去最高記録を\texttt{bestScore}，直近5回の記録を\texttt{rankingScores[]}に保持する．
+表\ref{tab:1-7-1}に示した主要変数および定数について，システム動作に果たす役割を述べる．
+UI.pde側では，現在のテンポを保持する\texttt{bpm}，演奏順を保持する\texttt{playOrder[]}，共通オクターブを保持する\texttt{octave}が，送信パケットを構成する中核の変数である．これらは演奏中フラグ\texttt{isPlaying}の状態に応じて変更可否が切り替わり，\texttt{isPlaying}自体はMasterからのシリアル受信または\texttt{completeCurrentRun()}の呼び出しによって更新される．BearWindowとの連携は，参照を保持する\texttt{bearWin}と，スペースキーの押し続けを管理する\texttt{bearJumpKeyHeld}によって行われる．
+BearWindow.pde側では，BPMに対するスクロール速度の基準となる\texttt{BASE\_BPM}，\texttt{BASE\_SPEED}と，ジャンプの物理特性を決める\texttt{GRAVITY}，\texttt{JUMP\_VELOCITY}，\texttt{MAX\_JUMPS}が描画・操作の基準値となる．クマの位置は\texttt{BEAR\_X}，\texttt{BEAR\_GROUND\_Y}を基準座標とし，画像の見た目と当たり判定の中心とのずれを\texttt{BEAR\_FOOT\_OFFSET}，\texttt{TREE\_FOOT\_OFFSET}，\texttt{OBSTACLE\_FOOT\_OFFSET}で補正する．当たり判定の半径は\texttt{BEAR\_HIT\_RADIUS}として見た目の画像サイズより小さく設定し，判定の公平性を保っている．コイン・障害物・パーティクルはそれぞれ固定長配列（\texttt{coinX[]}等，\texttt{obstacleX[]}等，\texttt{scatterX[]}等）で位置と状態を管理し，配列長は\texttt{COIN\_COUNT}，\texttt{OBSTACLE\_COUNT}，\texttt{SCATTER\_COUNT}によって定める．スコア関連では，現在のランで獲得したコイン数を\texttt{currentRunScore}，過去最高記録を\texttt{bestScore}，直近5回の記録を\texttt{rankingScores[]}に保持する．
 
 \renewcommand{\arraystretch}{1.25}
 \newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
@@ -501,7 +489,7 @@ BearWindow.pde側（表\ref{tab:1-7-2}）では，BPMに対するスクロール
 
 {\small
 \begin{tabularx}{\textwidth}{|M{2.0cm}|M{3.0cm}|M{1.8cm}|Y|}
-    \caption{主要変数および定数表（UI.pde）}\label{tab:1-7-1}\\
+    \caption{主要変数および定数表}\label{tab:1-7-1}\\
     \hline
     \textbf{型} & \textbf{変数名} & \textbf{初期値} & \textbf{役割} \\ \hline
     \endfirsthead
@@ -515,6 +503,7 @@ BearWindow.pde側（表\ref{tab:1-7-2}）では，BPMに対するスクロール
     \hline
     \endlastfoot
 
+    \multicolumn{4}{|c|}{\textbf{UI.pde}} \\ \hline
     int & bpm & 120 & 現在の設定BPMを保持する．30〜180の範囲で更新される． \\ \hline
     int[] & playOrder & \{0, 0, 0\} & ピアノ・フルート・木琴の演奏順（0は未設定）を保持する． \\ \hline
     int & octave & 4 & 共通オクターブ（国際式$-1$〜$9$）を保持する． \\ \hline
@@ -523,31 +512,8 @@ BearWindow.pde側（表\ref{tab:1-7-2}）では，BPMに対するスクロール
     boolean & isSerialConnected & false & Masterとのシリアル接続に成功したかどうかを示す． \\ \hline
     BearWindow & bearWin & なし & クマアニメーション別ウィンドウへの参照を保持する． \\ \hline
     boolean & bearJumpKeyHeld & false & スペースキーの押し続けを判定し，ジャンプの多重発火を防ぐ． \\ \hline
-\end{tabularx}
-}
 
-\newpage
-
-\renewcommand{\arraystretch}{1.25}
-\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
-\newcolumntype{Y}{>{\centering\arraybackslash}X}
-
-{\small
-\begin{tabularx}{\textwidth}{|M{2.0cm}|M{3.0cm}|M{1.8cm}|Y|}
-    \caption{主要変数および定数表（BearWindow.pde）}\label{tab:1-7-2}\\
-    \hline
-    \textbf{型} & \textbf{変数名} & \textbf{初期値} & \textbf{役割} \\ \hline
-    \endfirsthead
-    \multicolumn{4}{c}{\tablename\ \thetable\ （続き）}\\
-    \hline
-    \textbf{型} & \textbf{変数名} & \textbf{初期値} & \textbf{役割} \\ \hline
-    \endhead
-    \hline
-    \multicolumn{4}{r}{次ページに続く}\\
-    \endfoot
-    \hline
-    \endlastfoot
-
+    \multicolumn{4}{|c|}{\textbf{BearWindow.pde}} \\ \hline
     float & bearBpm & 120.0 & UI.pdeから同期される現在のBPMを保持する． \\ \hline
     boolean & bearPlaying & false & UI.pdeから同期される演奏中フラグを保持する． \\ \hline
     final float & BASE\_BPM & 120.0 & スクロール速度の基準となるBPM値を保持する． \\ \hline
@@ -574,7 +540,27 @@ BearWindow.pde側（表\ref{tab:1-7-2}）では，BPMに対するスクロール
 \end{tabularx}
 }
 
+\section{付録}
+\begin{itemize}
+    \item \textbf{添付資料：}
+    \begin{itemize}
+    	\item 回路図： 
+	\begin{figure}[H]
+  \centering
+  \includegraphics[width=15cm]{fig/HCK01_kairo.pdf} 
+  \caption{Arduinoオーケストラの回路図}
+  \label{fig:1-11}
+  \end{figure}
+        \item ソースコード： \\
+        メインリポジトリ：\url{https://github.com/GingerAle0220/HCK01_group7}\\
+        UIおよびクマさんアニメーション：\url{https://github.com/GingerAle0220/HCK01_group7/tree/main/UI_ver.3}\\
+        設計書\_UI：\url{https://github.com/GingerAle0220/HCK01_group7/tree/main/\%E8\%A8\%AD\%E8\%A8\%88\%E6\%9B\%B8}\\
+        班員のコード：\url{https://github.com/GingerAle0220/HCK01_group7/tree/main/Ptype1}
+    \end{itemize}
+\end{itemize}
 
+
+\if0
 \begin{thebibliography}{9}
 %\bibitem{ref:1-1}難波精一郎（$2012$）「時間，音そして音楽─実験心理学的観点から─」『日本音楽知覚認知学会』第$18$巻第$1\&2$号
 \bibitem{ref:1-2} 宮坂泰弘，近藤康太郎，森道昭，神門正城，桐山博光（$2024$）「光同期光パラメトリックチャープパルス増幅法励起のための高安定サブナノ秒Nd:YAGレーザー」『レーザー研究』第$52$巻第$2$号，p.79--83．
@@ -586,4 +572,5 @@ BearWindow.pde側（表\ref{tab:1-7-2}）では，BPMに対するスクロール
 \url{https://www.nxp.com/docs/en/user-guide/UM10204.pdf}
 
 \end{thebibliography}
+\fi
 \end{document}

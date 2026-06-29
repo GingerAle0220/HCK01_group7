@@ -1,9 +1,9 @@
-This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.uptex) (TeX Live 2025) (preloaded format=uplatex 2025.4.24)  23 JUN 2026 23:38
+This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.uptex) (TeX Live 2025) (preloaded format=uplatex 2025.4.24)  28 JUN 2026 16:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**HCK_設計書_UI.tex
-(./HCK_設計書_UI.tex
+**HCK_設計書_UI2.tex
+(./HCK_設計書_UI2.tex
 pLaTeX2e <2023-02-14u04>+1, based on
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-03-26>
@@ -590,36 +590,58 @@ Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
 \multirow@dima=\skip70
 \bigstrutjot=\dimen267
 )
+(/usr/local/texlive/2025/texmf-dist/tex/latex/ltablex/ltablex.sty
+Package: ltablex 2014/08/13 v1.1 Modified tabularx
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2024-10-27 v4.22 Multi-page Table package (DPC)
+\LTleft=\skip71
+\LTright=\skip72
+\LTpre=\skip73
+\LTpost=\skip74
+\LTchunksize=\count324
+\LTcapwidth=\dimen268
+\LT@head=\box88
+\LT@firsthead=\box89
+\LT@foot=\box90
+\LT@lastfoot=\box91
+\LT@gbox=\box92
+\LT@cols=\count325
+\LT@rows=\count326
+\c@LT@tables=\count327
+\c@LT@chunks=\count328
+\LT@p@ftn=\toks35
+))
 (/usr/local/texlive/2025/texmf-dist/tex/latex/wrapfig/wrapfig.sty
-\wrapoverhang=\dimen268
-\WF@size=\dimen269
-\c@WF@wrappedlines=\count324
-\WF@box=\box88
-\WF@everypar=\toks35
+\wrapoverhang=\dimen269
+\WF@size=\dimen270
+\c@WF@wrappedlines=\count329
+\WF@box=\box93
+\WF@everypar=\toks36
 Package: wrapfig 2003/01/31  v 3.6
 )
 (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count325
-\lst@gtempboxa=\box89
-\lst@token=\toks36
-\lst@length=\count326
-\lst@currlwidth=\dimen270
-\lst@column=\count327
-\lst@pos=\count328
-\lst@lostspace=\dimen271
-\lst@width=\dimen272
-\lst@newlines=\count329
-\lst@lineno=\count330
-\lst@maxwidth=\dimen273
+\lst@mode=\count330
+\lst@gtempboxa=\box94
+\lst@token=\toks37
+\lst@length=\count331
+\lst@currlwidth=\dimen271
+\lst@column=\count332
+\lst@pos=\count333
+\lst@lostspace=\dimen272
+\lst@width=\dimen273
+\lst@newlines=\count334
+\lst@lineno=\count335
+\lst@maxwidth=\dimen274
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstpatch.sty
 File: lstpatch.sty 2024/09/23 1.10c (Carsten Heinz)
 )
 (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
-\c@lstnumber=\count331
-\lst@skipnumbers=\count332
-\lst@framebox=\box90
+\c@lstnumber=\count336
+\lst@skipnumbers=\count337
+\lst@framebox=\box95
 )
 (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2024/09/23 1.10c listings configuration
@@ -661,77 +683,77 @@ Package: ascmac 2020/01/15 v2.1 ascmac wrapper (community edition)
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/ascmac/tascmac.sty
 Package: tascmac 2020/01/15 v2.1 ascmac package (community edition) 
-\@savetbaselineshift=\dimen274
-\@saveybaselineshift=\dimen275
-\scb@x=\box91
-\scscb@x=\box92
-\@bw=\dimen276
-\@nbox=\box93
-\@nbody=\box94
-\@scw=\dimen277
-\ascmac@hoboxa=\box95
-\ascmac@hoboxb=\box96
-\@itemh=\dimen278
-\@iboxpos=\toks37
-\@iboxstr=\box97
-\@bwsp=\box98
-\@@bwsp=\box99
-\@bcal=\count333
-\shaderule=\dimen279
+\@savetbaselineshift=\dimen275
+\@saveybaselineshift=\dimen276
+\scb@x=\box96
+\scscb@x=\box97
+\@bw=\dimen277
+\@nbox=\box98
+\@nbody=\box99
+\@scw=\dimen278
+\ascmac@hoboxa=\box100
+\ascmac@hoboxb=\box101
+\@itemh=\dimen279
+\@iboxpos=\toks38
+\@iboxstr=\box102
+\@bwsp=\box103
+\@@bwsp=\box104
+\@bcal=\count338
+\shaderule=\dimen280
 ))
 LaTeX Font Info:    Font shape `JT2/hmc/m/n' will be
-(Font)              scaled to size 10.0pt on input line 46.
+(Font)              scaled to size 10.0pt on input line 48.
 LaTeX Font Info:    Font shape `JY2/hmc/m/n' will be
-(Font)              scaled to size 10.0pt on input line 46.
+(Font)              scaled to size 10.0pt on input line 48.
 LaTeX Font Info:    Trying to load font information for T1+stix2 on input line 
-46.
+48.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/stix2-type1/t1stix2.fd
 File: t1stix2.fd 2018/04/02 v2.0.0-latex stix2 T1 font definitions
 )
-(./HCK_設計書_UI.aux)
-\openout1 = `HCK_設計書_UI.aux'.
+(./HCK_設計書_UI2.aux)
+\openout1 = `HCK_設計書_UI2.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for JY2/mc/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for JT2/mc/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for LS1/stix2/m/n on input line 46.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for JY2/mc/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for JT2/mc/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for LS1/stix2/m/n on input line 48.
 LaTeX Font Info:    Trying to load font information for LS1+stix2 on input line
- 46.
+ 48.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/stix2-type1/ls1stix2.fd
 File: ls1stix2.fd 2018/04/02 v2.0.0-latex stix2 LS1 font definitions
 )
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for LS2/stix2/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for LS2/stix2/m/n on input line 48.
 LaTeX Font Info:    Trying to load font information for LS2+stix2 on input line
- 46.
+ 48.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/stix2-type1/ls2stix2.fd
 File: ls2stix2.fd 2018/04/02 v2.0.0-latex stix2 LS2 font definitions
 )
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Info: Command `\dddot' is already robust on input line 46.
-LaTeX Info: Command `\ddddot' is already robust on input line 46.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Info: Command `\dddot' is already robust on input line 48.
+LaTeX Info: Command `\ddddot' is already robust on input line 48.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
@@ -747,198 +769,415 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: dvipdfmx.def on input line 106.
 )
-\Gin@req@height=\dimen280
-\Gin@req@width=\dimen281
+\Gin@req@height=\dimen281
+\Gin@req@width=\dimen282
 )
-Package hyperref Info: Link coloring OFF on input line 46.
+Package hyperref Info: Link coloring OFF on input line 48.
 
-(./HCK_設計書_UI.out) (./HCK_設計書_UI.out)
+(./HCK_設計書_UI2.out) (./HCK_設計書_UI2.out)
 \@outlinefile=\write3
-\openout3 = `HCK_設計書_UI.out'.
+\openout3 = `HCK_設計書_UI2.out'.
 
-\c@lstlisting=\count334
+\c@lstlisting=\count339
 LaTeX Font Info:    Font shape `JT2/hmc/m/n' will be
-(Font)              scaled to size 17.0pt on input line 53.
+(Font)              scaled to size 17.0pt on input line 55.
 LaTeX Font Info:    Font shape `JY2/hmc/m/n' will be
-(Font)              scaled to size 17.0pt on input line 53.
+(Font)              scaled to size 17.0pt on input line 55.
 LaTeX Font Info:    Font shape `JT2/hmc/m/n' will be
-(Font)              scaled to size 12.0pt on input line 53.
+(Font)              scaled to size 12.0pt on input line 55.
 LaTeX Font Info:    Font shape `JY2/hmc/m/n' will be
-(Font)              scaled to size 12.0pt on input line 53.
+(Font)              scaled to size 12.0pt on input line 55.
 LaTeX Font Info:    Trying to load font information for LS1+stix2scr on input l
-ine 53.
+ine 55.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/stix2-type1/ls1stix2scr.fd
 File: ls1stix2scr.fd 2018/04/02 v2.0.0-latex stix2 script LS1 font definitions
 )
 LaTeX Font Info:    Trying to load font information for LS2+stix2ex on input li
-ne 53.
+ne 55.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/stix2-type1/ls2stix2ex.fd
 File: ls2stix2ex.fd 2018/04/02 v2.0.0-latex stix2 extentions LS2 font definitio
 ns
 )
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 12.0pt on input line 53.
+(Font)              scaled to size 12.0pt on input line 55.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 8.0pt on input line 53.
+(Font)              scaled to size 8.0pt on input line 55.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 6.0pt on input line 53.
+(Font)              scaled to size 6.0pt on input line 55.
 LaTeX Font Info:    Trying to load font information for LS1+stix2frak on input 
-line 53.
+line 55.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/stix2-type1/ls1stix2frak.fd
 File: ls1stix2frak.fd 2018/04/02 v2.0.0-latex stix2 fraktur LS1 font definition
 s
 )
 LaTeX Font Info:    Trying to load font information for LS1+stix2bb on input li
-ne 53.
+ne 55.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/stix2-type1/ls1stix2bb.fd
 File: ls1stix2bb.fd 2018/04/02 v2.0.0-latex stix2 blackboard LS1 font definitio
 ns
 )
 LaTeX Font Info:    Trying to load font information for LS2+stix2cal on input l
-ine 53.
+ine 55.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/stix2-type1/ls2stix2cal.fd
 File: ls2stix2cal.fd 2018/04/02 v2.0.0-latex stix2 calligraphic LS2 font defini
 tions
 )
 LaTeX Font Info:    Trying to load font information for LS1+stix2sf on input li
-ne 53.
+ne 55.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/stix2-type1/ls1stix2sf.fd
 File: ls1stix2sf.fd 2018/04/02 v2.0.0-latex stix2 sans-serif LS1 font definitio
 ns
 )
 LaTeX Font Info:    Trying to load font information for LS2+stix2tt on input li
-ne 53.
+ne 55.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/stix2-type1/ls2stix2tt.fd
 File: ls2stix2tt.fd 2018/04/02 v2.0.0-latex stix2 typewriter LS2 font definitio
 ns
 )
 LaTeX Font Info:    Font shape `JT2/hmc/m/n' will be
-(Font)              scaled to size 14.0pt on input line 55.
+(Font)              scaled to size 14.0pt on input line 57.
 LaTeX Font Info:    Font shape `JY2/hmc/m/n' will be
-(Font)              scaled to size 14.0pt on input line 55.
+(Font)              scaled to size 14.0pt on input line 57.
 LaTeX Font Info:    Font shape `JT2/hgt/m/n' will be
-(Font)              scaled to size 14.0pt on input line 55.
+(Font)              scaled to size 14.0pt on input line 57.
 LaTeX Font Info:    Font shape `JY2/hgt/m/n' will be
-(Font)              scaled to size 14.0pt on input line 55.
+(Font)              scaled to size 14.0pt on input line 57.
 LaTeX Font Info:    Trying to load font information for T1+lmss on input line 5
-5.
+7.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `JT2/hgt/bx/n' will be
-(Font)              scaled to size 14.0pt on input line 55.
+(Font)              scaled to size 14.0pt on input line 57.
 LaTeX Font Info:    Font shape `JY2/hgt/bx/n' will be
-(Font)              scaled to size 14.0pt on input line 55.
+(Font)              scaled to size 14.0pt on input line 57.
 LaTeX Font Info:    Font shape `JT2/hgt/m/n' will be
-(Font)              scaled to size 12.0pt on input line 57.
+(Font)              scaled to size 12.0pt on input line 59.
 LaTeX Font Info:    Font shape `JY2/hgt/m/n' will be
-(Font)              scaled to size 12.0pt on input line 57.
+(Font)              scaled to size 12.0pt on input line 59.
 LaTeX Font Info:    Font shape `JT2/hgt/bx/n' will be
-(Font)              scaled to size 12.0pt on input line 57.
+(Font)              scaled to size 12.0pt on input line 59.
 LaTeX Font Info:    Font shape `JY2/hgt/bx/n' will be
-(Font)              scaled to size 12.0pt on input line 57.
+(Font)              scaled to size 12.0pt on input line 59.
+LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
+(Font)              scaled to size 7.5pt on input line 60.
+
+
+LaTeX Font Info:    Font shape `JT2/hmc/m/n' will be
+(Font)              scaled to size 8.99994pt on input line 63.
+LaTeX Font Info:    Font shape `JY2/hmc/m/n' will be
+(Font)              scaled to size 8.99994pt on input line 63.
+[1
+
+]
 File: fig/FBS.pdf Graphic file (type pdf)
 <fig/FBS.pdf>
-LaTeX Font Info:    Font shape `JT2/hmc/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 65.
-LaTeX Font Info:    Font shape `JY2/hmc/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 65.
 LaTeX Font Info:    Font shape `JT2/hgt/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 65.
+(Font)              scaled to size 8.99994pt on input line 69.
 LaTeX Font Info:    Font shape `JY2/hgt/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 65.
+(Font)              scaled to size 8.99994pt on input line 69.
 LaTeX Font Info:    Font shape `JT2/hgt/bx/n' will be
-(Font)              scaled to size 8.99994pt on input line 65.
+(Font)              scaled to size 8.99994pt on input line 69.
 LaTeX Font Info:    Font shape `JY2/hgt/bx/n' will be
-(Font)              scaled to size 8.99994pt on input line 65.
+(Font)              scaled to size 8.99994pt on input line 69.
 
 
 LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
-(Font)              using `JY2/hmc/bx/n' instead on input line 106.
+(Font)              using `JY2/hmc/bx/n' instead on input line 118.
 
 
 LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
-(Font)              using `JY2/hmc/bx/n' instead on input line 106.
+(Font)              using `JY2/hmc/bx/n' instead on input line 118.
 
 
-Overfull \hbox (4.64174pt too wide) in paragraph at lines 106--106
+Overfull \hbox (4.64174pt too wide) in paragraph at lines 118--118
+[]|[]|  
+ []
+
+
+Overfull \hbox (4.64174pt too wide) in paragraph at lines 118--118
+[]|[]|  
+ []
+
+
+Overfull \hbox (24.64174pt too wide) in paragraph at lines 118--118
 []|[]|  
  []
 
 
 
-[1
-
-]
-
 [2]
+
+[3]
 LaTeX Font Info:    Font shape `JT2/hgt/m/n' will be
-(Font)              scaled to size 10.0pt on input line 115.
+(Font)              scaled to size 10.0pt on input line 127.
 LaTeX Font Info:    Font shape `JY2/hgt/m/n' will be
-(Font)              scaled to size 10.0pt on input line 115.
+(Font)              scaled to size 10.0pt on input line 127.
 LaTeX Font Info:    Font shape `JT2/hgt/bx/n' will be
-(Font)              scaled to size 10.0pt on input line 115.
+(Font)              scaled to size 10.0pt on input line 127.
 LaTeX Font Info:    Font shape `JY2/hgt/bx/n' will be
-(Font)              scaled to size 10.0pt on input line 115.
+(Font)              scaled to size 10.0pt on input line 127.
 File: fig/UIgamen.png Graphic file (type bmp)
 <fig/UIgamen.png>
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-27.
+39.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 
-[3]
-
-LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
-(Font)              using `JY2/hmc/bx/n' instead on input line 174.
-
-
-LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
-(Font)              using `JY2/hmc/bx/n' instead on input line 174.
-
-
-LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
-(Font)              using `JY2/hmc/bx/n' instead on input line 174.
-
-
-
 [4]
+
+LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
+(Font)              using `JY2/hmc/bx/n' instead on input line 186.
+
+
+LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
+(Font)              using `JY2/hmc/bx/n' instead on input line 186.
+
+
+LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
+(Font)              using `JY2/hmc/bx/n' instead on input line 186.
+
+
+
+[5]
 File: fig/ProcessingFro.pdf Graphic file (type pdf)
 <fig/ProcessingFro.pdf>
 
 
-[5]
+[6]
+File: fig/BearWindow.png Graphic file (type bmp)
+<fig/BearWindow.png>
+File: fig/BearWindowFro.pdf Graphic file (type pdf)
+<fig/BearWindowFro.pdf>
+
+
+[7]
+
+[8]
+
+[9]
 File: fig/zentaiFro2.pdf Graphic file (type pdf)
 <fig/zentaiFro2.pdf>
 
 
-[6]
+[10]
 
-[7] (./HCK_設計書_UI.aux)
+LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
+(Font)              using `JY2/hmc/bx/n' instead on input line 444.
+
+
+LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
+(Font)              using `JY2/hmc/bx/n' instead on input line 444.
+
+
+LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
+(Font)              using `JY2/hmc/bx/n' instead on input line 444.
+
+
+LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
+(Font)              using `JY2/hmc/bx/n' instead on input line 444.
+
+
+LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
+(Font)              using `JY2/hmc/bx/n' instead on input line 444.
+
+
+LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
+(Font)              using `JY2/hmc/bx/n' instead on input line 444.
+
+
+LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
+(Font)              using `JY2/hmc/bx/n' instead on input line 444.
+
+
+LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
+(Font)              using `JY2/hmc/bx/n' instead on input line 444.
+
+
+Overfull \hbox (10.75189pt too wide) in paragraph at lines 444--444
+ []|\T1/stix2/m/n/8.99994 sendParametersToMaster| 
+ []
+
+[11]
+
+[12]
+
+Package array Warning: Column M is already defined on input line 450.
+
+
+Package array Warning: Column Y is already defined on input line 451.
+
+
+LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
+(Font)              using `JY2/hmc/bx/n' instead on input line 491.
+
+
+LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
+(Font)              using `JY2/hmc/bx/n' instead on input line 491.
+
+
+LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
+(Font)              using `JY2/hmc/bx/n' instead on input line 491.
+
+
+LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
+(Font)              using `JY2/hmc/bx/n' instead on input line 491.
+
+
+LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
+(Font)              using `JY2/hmc/bx/n' instead on input line 491.
+
+
+LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
+(Font)              using `JY2/hmc/bx/n' instead on input line 491.
+
+
+LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
+(Font)              using `JY2/hmc/bx/n' instead on input line 491.
+
+
+LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
+(Font)              using `JY2/hmc/bx/n' instead on input line 491.
+
+
+Overfull \hbox (2.24951pt too wide) in paragraph at lines 491--491
+ []|\T1/stix2/m/n/8.99994 applyObstaclePenalty| 
+ []
+
+[13]
+
+Package array Warning: Column M is already defined on input line 501.
+
+
+Package array Warning: Column Y is already defined on input line 502.
+
+
+LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
+(Font)              using `JY2/hmc/bx/n' instead on input line 528.
+
+
+LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
+(Font)              using `JY2/hmc/bx/n' instead on input line 528.
+
+
+LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
+(Font)              using `JY2/hmc/bx/n' instead on input line 528.
+
+
+LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
+(Font)              using `JY2/hmc/bx/n' instead on input line 528.
+
+
+LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
+(Font)              using `JY2/hmc/bx/n' instead on input line 528.
+
+
+LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
+(Font)              using `JY2/hmc/bx/n' instead on input line 528.
+
+
+LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
+(Font)              using `JY2/hmc/bx/n' instead on input line 528.
+
+
+LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
+(Font)              using `JY2/hmc/bx/n' instead on input line 528.
+
+[14]
+
+[15]
+
+Package array Warning: Column M is already defined on input line 534.
+
+
+Package array Warning: Column Y is already defined on input line 535.
+
+
+LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
+(Font)              using `JY2/hmc/bx/n' instead on input line 576.
+
+
+LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
+(Font)              using `JY2/hmc/bx/n' instead on input line 576.
+
+
+LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
+(Font)              using `JY2/hmc/bx/n' instead on input line 576.
+
+
+LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
+(Font)              using `JY2/hmc/bx/n' instead on input line 576.
+
+
+LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
+(Font)              using `JY2/hmc/bx/n' instead on input line 576.
+
+
+LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
+(Font)              using `JY2/hmc/bx/n' instead on input line 576.
+
+
+LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
+(Font)              using `JY2/hmc/bx/n' instead on input line 576.
+
+
+LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
+(Font)              using `JY2/hmc/bx/n' instead on input line 576.
+
+
+Overfull \hbox (3.88501pt too wide) in paragraph at lines 576--576
+ []|\T1/stix2/m/n/8.99994 BEAR_FOOT_OFFSET| 
+ []
+
+
+Overfull \hbox (2.92201pt too wide) in paragraph at lines 576--576
+ []|\T1/stix2/m/n/8.99994 TREE_FOOT_OFFSET| 
+ []
+
+
+Overfull \hbox (24.85481pt too wide) in paragraph at lines 576--576
+ []|\T1/stix2/m/n/8.99994 OBSTACLE_FOOT_OFFSET| 
+ []
+
+
+Overfull \hbox (33.50127pt too wide) in paragraph at lines 576--576
+ []|\T1/stix2/m/n/8.99994 BEAR_STATE_WALK| 
+ []
+
+
+Overfull \hbox (1.92955pt too wide) in paragraph at lines 576--576
+ []|\T1/stix2/m/n/8.99994 MAX_JUMPS| 
+ []
+
+
+
+[16]
+
+[17] (./HCK_設計書_UI2.aux)
  ***********
 pLaTeX2e <2023-02-14u04>+1, based on
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-03-26>
  ***********
-Package rerunfilecheck Info: File `HCK_設計書_UI.out' has not changed.
-(rerunfilecheck)             Checksum: E97831AE256342200E986296A2FBEB45;975.
+Package rerunfilecheck Info: File `HCK_設計書_UI2.out' has not changed.
+(rerunfilecheck)             Checksum: 1386F4EA9B0C7F156C313C7AD19B7638;1388.
  ) 
 Here is how much of TeX's memory you used:
- 20935 strings out of 470271
- 342707 string characters out of 5486374
- 888949 words of memory out of 5000000
- 47478 multiletter control sequences out of 15000+600000
- 777394 words of font info for 217 fonts, out of 8000000 for 9000
+ 21103 strings out of 470271
+ 345688 string characters out of 5486374
+ 927517 words of memory out of 5000000
+ 47636 multiletter control sequences out of 15000+600000
+ 777713 words of font info for 218 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
- 92i,11n,103p,1454b,1025s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 92i,11n,103p,1407b,1025s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on HCK_設計書_UI.dvi (7 pages, 24416 bytes).
+Output written on HCK_設計書_UI2.dvi (17 pages, 71472 bytes).

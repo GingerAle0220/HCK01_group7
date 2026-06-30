@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.uptex) (TeX Live 2025) (preloaded format=uplatex 2025.4.24)  30 JUN 2026 00:33
+This is e-upTeX, Version 3.141592653-p4.1.2-u2.00-250202-2.6 (utf8.uptex) (TeX Live 2025) (preloaded format=uplatex 2025.4.24)  30 JUN 2026 12:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1006,7 +1006,7 @@ LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
 (Font)              using `JY2/hmc/bx/n' instead on input line 477.
 
 
-Overfull \hbox (13.59734pt too wide) in paragraph at lines 477--477
+Overfull \hbox (2.21597pt too wide) in paragraph at lines 477--477
  []|\T1/stix2/m/n/8.99994 sendParametersToMaster| 
  []
 
@@ -1058,51 +1058,41 @@ LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
 (Font)              using `JY2/hmc/bx/n' instead on input line 540.
 
 
+Overfull \hbox (4.41599pt too wide) in paragraph at lines 540--540
+ []|\T1/stix2/m/n/8.99994 BearWindow| 
+ []
+
+
 LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
 (Font)              using `JY2/hmc/bx/n' instead on input line 540.
 
 
-Overfull \hbox (3.88501pt too wide) in paragraph at lines 540--540
- []|\T1/stix2/m/n/8.99994 BEAR_FOOT_OFFSET| 
- []
-
-
-Overfull \hbox (2.92201pt too wide) in paragraph at lines 540--540
- []|\T1/stix2/m/n/8.99994 TREE_FOOT_OFFSET| 
- []
-
-
-Overfull \hbox (24.85481pt too wide) in paragraph at lines 540--540
+Overfull \hbox (4.93797pt too wide) in paragraph at lines 540--540
  []|\T1/stix2/m/n/8.99994 OBSTACLE_FOOT_OFFSET| 
  []
 
 
-Overfull \hbox (33.50127pt too wide) in paragraph at lines 540--540
+Overfull \hbox (2.20349pt too wide) in paragraph at lines 540--540
  []|\T1/stix2/m/n/8.99994 BEAR_STATE_WALK| 
- []
-
-
-Overfull \hbox (1.92955pt too wide) in paragraph at lines 540--540
- []|\T1/stix2/m/n/8.99994 MAX_JUMPS| 
  []
 
 
 
 [14] [15]
+
+[16]
 LaTeX Font Info:    Trying to load font information for TS1+stix2 on input line
- 545.
+ 547.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/stix2-type1/ts1stix2.fd
 File: ts1stix2.fd 2018/04/02 v2.0.0-latex stix2 TS1 font definitions
 )
 
 LaTeX Font Warning: Font shape `JY2/hmc/b/n' undefined
-(Font)              using `JY2/hmc/bx/n' instead on input line 545.
+(Font)              using `JY2/hmc/bx/n' instead on input line 547.
 
 File: fig/HCK01_kairo.pdf Graphic file (type pdf)
 <fig/HCK01_kairo.pdf>
 
-
-[16]
 
 [17] (./HCK_設計書_UI3.aux)
  ***********
@@ -1120,10 +1110,10 @@ Package rerunfilecheck Info: File `HCK_設計書_UI3.out' has not changed.
 Here is how much of TeX's memory you used:
  21138 strings out of 470271
  346571 string characters out of 5486374
- 955517 words of memory out of 5000000
+ 956517 words of memory out of 5000000
  47665 multiletter control sequences out of 15000+600000
  778054 words of font info for 219 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
  92i,15n,103p,1455b,1025s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on HCK_設計書_UI3.dvi (17 pages, 71440 bytes).
+Output written on HCK_設計書_UI3.dvi (17 pages, 71544 bytes).

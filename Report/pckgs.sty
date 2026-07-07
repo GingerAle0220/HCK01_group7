@@ -1,0 +1,47 @@
+\usepackage{jlreq-deluxe}
+\usepackage[noalphabet,hiragino-highsierra-pron]{pxchfon}
+\usepackage[T1,LGR]{fontenc}
+\usepackage{stix2}
+\usepackage{roboto}
+\usepackage[scale=0.95]{roboto-mono}
+
+\usepackage[fleqn,tbtags]{mathtools} % 数式関連 (w/ amsmath)
+\usepackage[table,dvipdfmx]{xcolor}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{ascmac} % screen/itembox/shadebox環境が使用できる．
+\usepackage{pgfgantt}
+
+% 図表関連
+\usepackage{float}    % [H] による図表位置固定
+\usepackage{array}    % 表の列指定 >{...}，\arraybackslash など
+\usepackage{tabularx} % tabularx環境，X列
+
+\usepackage[dvipdfmx]{hyperref}
+\hypersetup{%
+ bookmarksnumbered=true,%
+ colorlinks=true,%
+ linkcolor=black,
+ citecolor=black,
+ urlcolor=black}
+\usepackage[dvipdfmx]{pxjahyper} % (u)pLaTeXのときは必要
+
+\usepackage{listings,plistings}
+\lstset{%
+	aboveskip=0pt,
+	belowskip=0pt,
+	language=C++, % Arduinoのスケッチの関数も多くカバーできる．
+	morekeywords={ },
+	numbers=left,          % 行番号を左に表示
+	numberstyle=\small,    % 行番号のフォントサイズ
+	stepnumber=1,          % 行番号を何行おきに表示するか
+	numbersep=10pt,        % 行番号とコードの間の距離
+	backgroundcolor={},% 
+	basicstyle={\small\ttfamily},% 
+	keywordstyle=\color{blue}\bfseries,
+	commentstyle=\color{red},
+	frame=single,
+	breaklines=true}
+
+\newcommand{\mcbf}[1]{{\mcfamily\bfseries #1}}
+\newcommand{\gtbf}[1]{{\sffamily\bfseries #1}}
+\renewcommand\UrlFont{\color{black}\rmfamily}

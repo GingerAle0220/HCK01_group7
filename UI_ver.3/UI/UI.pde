@@ -8,8 +8,12 @@ boolean isSerialConnected = false; // 実機接続時はsetup内でtrueに切り
 
 int bpm = 120; // 初期BPM（30〜180）
 
+// 0=選択画面, 1=子ども, 2=大人
+int appMode = 0;
+
 // ドラムは演奏開始からずっと鳴り続けるため演奏順番設定から除外
 String[] instNames = {"ピアノ", "フルート", "木琴"}; // 3楽器（ドラム除外）
+String[] childInstNames = {"ピアノ", "フルート", "もっきん"};
 
 // 各楽器の演奏順番（0:未設定，1〜3:演奏順手）
 int[] playOrder = {0, 0, 0};
@@ -33,7 +37,9 @@ boolean bearJumpKeyHeld = false;
 // 2. UIボタン配置用座標
 // ==========================================
 int sendX = 610, sendY = 20, sendW = 150, sendH = 32;
-int resetX = 610, resetY = 250, resetW = 120, resetH = 40;
+int resetX = 610, resetY = 230, resetW = 120, resetH = 40;
+int childModeX = 210, childModeY = 260, childModeW = 160, childModeH = 72;
+int adultModeX = 430, adultModeY = 260, adultModeW = 160, adultModeH = 72;
 
 // オクターブボタンの配置
 int octBtnUpX, octBtnUpY;
@@ -74,127 +80,121 @@ void setup() {
   
 
   resetOrder();
-
-  // クマアニメーションウィンドウを起動
-  bearWin = new BearWindow();
-
-  // クマの画像はメインスケッチ(this)側でloadImage()してから渡す．
-  // ※ runSketch()で開く別ウィンドウ(BearWindow)内で直接loadImage()すると，
-  //   セカンドアプレットのsketchPathが正しく解決されず
-  //   （Processing IDEの実行ボタンでは特に発生しやすい既知の不具合），
-  //   data フォルダの画像が見つからずnullになることがあるため，
-  //   必ずメインスケッチ側で読み込んでから渡す．
-  bearWin.bearWalk1Img  = loadImage("kuma_walk1-1.png");
-  bearWin.bearWalk2Img  = loadImage("kuma_walk2-1.png");
-  bearWin.bearJumpImg   = loadImage("kuma_jump2.png");
-  bearWin.bearDamageImg = loadImage("kuma_damage2.png");
-
-  // 背景・地形・障害物の画像も同様にメインスケッチ側で読み込んでから渡す
-  bearWin.skyImg        = loadImage("Sky.png");
-  bearWin.groundImg     = loadImage("ground.png");
-  bearWin.cloudImgs[0]  = loadImage("Cloud1.png");
-  bearWin.cloudImgs[1]  = loadImage("Cloud2.png");
-  bearWin.treeImgs[0]   = loadImage("Tree1.png");
-  bearWin.treeImgs[1]   = loadImage("Tree2.png");
-  bearWin.stoneImg      = loadImage("Stone.png");
-
-  PApplet.runSketch(new String[]{"クマアニメーション"}, bearWin);
 }
 
 void draw() {
-  background(245);
+  if (appMode == 0) {
+    drawModeSelectScreen();
+    return;
+  }
+
+  boolean childMode = appMode == 1;
+  background(childMode ? color(255, 252, 232) : color(245));
 
   // ----------------------------------------
   // A. タイトル ＆ 送信ボタン
   // ----------------------------------------
-  fill(40);
-  textSize(22);
-  text("ハッカソン1 グループ7 演奏制御システム", 40, 46);
+  fill(childMode ? color(36, 92, 140) : color(40));
+  textSize(childMode ? 24 : 22);
+  text(childMode ? "みんなで えんそうしよう" : "ハッカソン1 グループ7 演奏制御システム", 40, 46);
 
   // 送信ボタン
   boolean isSendHovered = isHover(sendX, sendY, sendW, sendH);
-  fill(isSendHovered ? color(0, 153, 76) : color(0, 204, 102));
-  stroke(isSendHovered ? color(0, 102, 51) : color(0, 153, 76));
+  fill(isSendHovered ? (childMode ? color(255, 137, 42) : color(0, 153, 76)) : (childMode ? color(255, 177, 66) : color(0, 204, 102)));
+  stroke(isSendHovered ? (childMode ? color(230, 96, 20) : color(0, 102, 51)) : (childMode ? color(245, 130, 32) : color(0, 153, 76)));
   strokeWeight(isSendHovered ? 2 : 1);
   rect(sendX, sendY, sendW, sendH, 6);
   noStroke();
   fill(255);
-  textSize(14);
-  text("設定確定・送信", sendX + 26, sendY + 21);
+  textSize(childMode ? 17 : 14);
+  text(childMode ? "はじめる！" : "設定確定・送信", sendX + (childMode ? 38 : 26), sendY + 21);
 
   // ----------------------------------------
   // B. BPM設定エリア（演奏中も変更可能）
   // ----------------------------------------
-  stroke(200); fill(255);
+  stroke(childMode ? color(255, 190, 80) : color(200));
+  fill(childMode ? color(255, 255, 250) : color(255));
   rect(40, 75, 720, 90, 8);
   noStroke();
 
-  fill(40); textSize(20);
-  text("現在の設定BPM: " + bpm, 60, 115);
-  fill(120); textSize(13);
-  text("【操作方法】[↑] キーで +10 / [↓] キーで -10（範囲：30〜180）※演奏中も可変", 60, 145);
+  fill(childMode ? color(36, 92, 140) : color(40));
+  textSize(childMode ? 24 : 20);
+  text((childMode ? "テンポ（はやさ）: " : "現在の設定BPM: ") + bpm, 60, 115);
+  fill(childMode ? color(92, 122, 145) : color(120));
+  textSize(childMode ? 15 : 13);
+  text(childMode ? "【そうさ】[↑] キーで はやく / [↓] キーで ゆっくり（30〜180）※えんそうちゅうも かえられます" : "【操作方法】[↑] キーで +10 / [↓] キーで -10（範囲：30〜180）※演奏中も可変", 60, 145);
 
   // ----------------------------------------
   // C. 演奏順番設定エリア（演奏中はロック）
   // ----------------------------------------
-  stroke(200);
-  fill(isPlaying ? color(240) : color(255));
+  stroke(childMode ? color(114, 202, 255) : color(200));
+  fill(isPlaying ? (childMode ? color(245, 248, 250) : color(240)) : (childMode ? color(252, 255, 255) : color(255)));
   rect(40, 185, 720, 190, 8);
   noStroke();
 
-  fill(isPlaying ? color(140) : color(40)); textSize(16);
-  text("【演奏順番の設定】" + (isPlaying ? "（演奏中：変更不可）" : ""), 60, 220);
-  fill(80); textSize(14);
-  text("楽器番号 ―――  1: ピアノ  |  2: フルート  |  3: 木琴  ※ドラムは常時演奏", 60, 250);
+  fill(isPlaying ? color(140) : (childMode ? color(36, 92, 140) : color(40)));
+  textSize(childMode ? 18 : 16);
+  text((childMode ? "【えんそうのじゅんばん】" : "【演奏順番の設定】") + (isPlaying ? (childMode ? "（えんそうちゅう：かえられません）" : "（演奏中：変更不可）") : ""), 60, 220);
+  fill(childMode ? color(75, 93, 110) : color(80));
+  textSize(childMode ? 16 : 14);
+  text(childMode ? "がっきのばんごう ――  1: ピアノ  |  2: フルート  |  3: もっきん  ※ドラムはいつも なります" : "楽器番号 ―――  1: ピアノ  |  2: フルート  |  3: 木琴  ※ドラムは常時演奏", 60, 250);
 
   if (isPlaying) {
     fill(200, 100, 100);
-    text("★ 現在Masterが演奏中．演奏が終了するまで順番変更はできません．", 60, 275);
+    text(childMode ? "★ いま えんそうちゅうです。おわるまで じゅんばんは かえられません。" : "★ 現在Masterが演奏中．演奏が終了するまで順番変更はできません．", 60, 275);
   } else {
-    fill(0, 102, 204);
-    text("★ キーボードの [1] ～ [3] キーを演奏したい順番に押してください．", 60, 275);
+    fill(childMode ? color(20, 128, 210) : color(0, 102, 204));
+    text(childMode ? "★ キーボードの [1] ～ [3] キーを、ならしたい じゅんばんに おしてね。" : "★ キーボードの [1] ～ [3] キーを演奏したい順番に押してください．", 60, 275);
   }
 
-  fill(50); textSize(14);
-  text("現在の演奏ルート：", 60, 330);
+  fill(50);
+  textSize(childMode ? 16 : 14);
+  text(childMode ? "いまの えんそうルート：" : "現在の演奏ルート：", 60, 330);
+  int routeStartX = childMode ? 235 : 185;
+  int routeGap = 155;
+  int routeArrowOffset = 115;
   for (int i = 0; i < 3; i++) {
     int idx = orderSelection[i];
-    String name = (idx == -1) ? "未選択" : instNames[idx];
-    fill(idx == -1 ? color(160) : (isPlaying ? color(100, 140, 180) : color(0, 102, 204)));
-    text("[" + (i + 1) + "番手: " + name + "]", 185 + i * 155, 330);
-    if (i < 2) { fill(180); text("→", 300 + i * 155, 330); }
+    String name = (idx == -1) ? (childMode ? "まだ" : "未選択") : (childMode ? childInstNames[idx] : instNames[idx]);
+    fill(idx == -1 ? color(160) : (isPlaying ? color(100, 140, 180) : (childMode ? color(20, 128, 210) : color(0, 102, 204))));
+    text("[" + (i + 1) + (childMode ? "ばん: " : "番手: ") + name + "]", routeStartX + i * routeGap, 330);
+    if (i < 2) { fill(180); text("→", routeStartX + routeArrowOffset + i * routeGap, 330); }
   }
 
   // 順番リセットボタン（演奏中はグレー）
+  int resetButtonY = getResetButtonY();
   if (isPlaying) {
     fill(230); stroke(200);
-    rect(resetX, resetY, resetW, resetH, 6); noStroke();
+    rect(resetX, resetButtonY, resetW, resetH, 6); noStroke();
     fill(160); textSize(14);
-    text("ロック中", resetX + 32, resetY + 25);
+    text(childMode ? "まってね" : "ロック中", resetX + (childMode ? 28 : 32), resetButtonY + 25);
   } else {
-    boolean isResetHovered = isHover(resetX, resetY, resetW, resetH);
-    fill(isResetHovered ? color(255, 210, 210) : color(255, 235, 235));
-    stroke(isResetHovered ? color(204, 0, 0) : color(255, 150, 150));
-    rect(resetX, resetY, resetW, resetH, 6); noStroke();
-    fill(204, 0, 0); textSize(14);
-    text("順番リセット", resetX + 18, resetY + 25);
+    boolean isResetHovered = isHover(resetX, resetButtonY, resetW, resetH);
+    fill(isResetHovered ? (childMode ? color(255, 235, 120) : color(255, 210, 210)) : (childMode ? color(255, 246, 170) : color(255, 235, 235)));
+    stroke(isResetHovered ? (childMode ? color(235, 172, 20) : color(204, 0, 0)) : (childMode ? color(240, 196, 45) : color(255, 150, 150)));
+    rect(resetX, resetButtonY, resetW, resetH, 6); noStroke();
+    fill(childMode ? color(145, 103, 0) : color(204, 0, 0));
+    textSize(childMode ? 16 : 14);
+    text(childMode ? "やりなおす" : "順番リセット", resetX + (childMode ? 22 : 18), resetButtonY + 25);
   }
 
   // ----------------------------------------
   // D. 共通オクターブ設定エリア（演奏中はロック）
   // ----------------------------------------
-  stroke(180);
-  fill(isPlaying ? color(240) : color(255));
+  stroke(childMode ? color(156, 215, 93) : color(180));
+  fill(isPlaying ? (childMode ? color(245, 248, 240) : color(240)) : (childMode ? color(253, 255, 247) : color(255)));
   rect(40, 390, 720, 80, 8);
   noStroke();
 
-  fill(isPlaying ? color(140) : color(40)); textSize(16);
-  text("【共通オクターブ設定】" + (isPlaying ? "（演奏中：変更不可）" : ""), 60, 418);
+  fill(isPlaying ? color(140) : (childMode ? color(65, 120, 55) : color(40)));
+  textSize(childMode ? 18 : 16);
+  text((childMode ? "【おとのたかさ】" : "【共通オクターブ設定】") + (isPlaying ? (childMode ? "（えんそうちゅう：かえられません）" : "（演奏中：変更不可）") : ""), 60, 418);
 
-  fill(50); textSize(14);
+  fill(50);
+  textSize(childMode ? 16 : 14);
   String octDisplay = octave < 0 ? "-1（最低域）" : String.valueOf(octave);
   String octSendStr = nf(octave + 1, 2); // 送信用2桁値（00〜10）
-  text("現在のオクターブ: " + octDisplay + "  （送信値: " + octSendStr + "）  （国際式 -1〜9）", 60, 448);
+  text(childMode ? "いまの おとのたかさ: " + octave + "  （おくるすうじ: " + octSendStr + "）" : "現在のオクターブ: " + octDisplay + "  （送信値: " + octSendStr + "）  （国際式 -1〜9）", 60, 448);
 
   // ▲ ボタン（演奏中は非活性）
   if (isPlaying) {
@@ -202,8 +202,8 @@ void draw() {
     fill(170); textSize(14); text("▲ +1", octBtnUpX + 7, octBtnUpY + 22);
   } else {
     boolean isUpHover = isHover(octBtnUpX, octBtnUpY, octBtnW, octBtnH);
-    fill(isUpHover ? color(215, 235, 255) : color(245));
-    stroke(isUpHover ? color(0, 102, 204) : color(210));
+    fill(isUpHover ? (childMode ? color(218, 245, 255) : color(215, 235, 255)) : color(245));
+    stroke(isUpHover ? (childMode ? color(20, 128, 210) : color(0, 102, 204)) : color(210));
     rect(octBtnUpX, octBtnUpY, octBtnW, octBtnH, 4); noStroke();
     fill(40); textSize(14); text("▲ +1", octBtnUpX + 7, octBtnUpY + 22);
   }
@@ -214,8 +214,8 @@ void draw() {
     fill(170); textSize(14); text("▼ -1", octBtnDownX + 7, octBtnDownY + 22);
   } else {
     boolean isDownHover = isHover(octBtnDownX, octBtnDownY, octBtnW, octBtnH);
-    fill(isDownHover ? color(215, 235, 255) : color(245));
-    stroke(isDownHover ? color(0, 102, 204) : color(210));
+    fill(isDownHover ? (childMode ? color(218, 245, 255) : color(215, 235, 255)) : color(245));
+    stroke(isDownHover ? (childMode ? color(20, 128, 210) : color(0, 102, 204)) : color(210));
     rect(octBtnDownX, octBtnDownY, octBtnW, octBtnH, 4); noStroke();
     fill(40); textSize(14); text("▼ -1", octBtnDownX + 7, octBtnDownY + 22);
   }
@@ -229,20 +229,22 @@ void draw() {
     int boxW = 215;
     int boxH = 90;
 
-    stroke(200); fill(255);
+    stroke(childMode ? color(168, 190, 255) : color(200));
+    fill(childMode ? color(255, 255, 252) : color(255));
     rect(boxX, boxY, boxW, boxH, 8);
     noStroke();
 
-    fill(40); textSize(15);
-    text(instNames[i] + " (" + (i + 1) + ")", boxX + 15, boxY + 28);
+    fill(childMode ? color(55, 72, 135) : color(40));
+    textSize(childMode ? 17 : 15);
+    text((childMode ? childInstNames[i] : instNames[i]) + " (" + (i + 1) + ")", boxX + 15, boxY + 28);
 
-    textSize(13);
+    textSize(childMode ? 15 : 13);
     if (playOrder[i] == 0) {
       fill(150);
-      text("順番: 未設定", boxX + 15, boxY + 52);
+      text(childMode ? "じゅんばん: まだ" : "順番: 未設定", boxX + 15, boxY + 52);
     } else {
-      fill(isPlaying ? color(100, 130, 160) : color(0, 102, 204));
-      text("順番: " + playOrder[i] + " 番手", boxX + 15, boxY + 52);
+      fill(isPlaying ? color(100, 130, 160) : (childMode ? color(20, 128, 210) : color(0, 102, 204)));
+      text((childMode ? "じゅんばん: " : "順番: ") + playOrder[i] + (childMode ? " ばん" : " 番手"), boxX + 15, boxY + 52);
     }
 
     int midiC = (octave + 1) * 12;
@@ -253,17 +255,18 @@ void draw() {
   // ----------------------------------------
   // F. 送信パケットプレビュー ＆ システム状態
   // ----------------------------------------
-  fill(60); textSize(13);
-  text("送信パケット（8バイト）: " + buildPacket(), 40, 585);
+  fill(60);
+  textSize(childMode ? 14 : 13);
+  text((childMode ? "おくるすうじ: " : "送信パケット（8バイト）: ") + buildPacket(), 40, 585);
 
   // 右下にシステムステータス
   textAlign(RIGHT);
   if (isPlaying) {
     fill(204, 0, 0);
-    text("【ステータス: 演奏中・設定ロック中 ← Master FINISH待ち】", 760, 585);
+    text(childMode ? "【いまのじょうたい: えんそうちゅう・まってね】" : "【ステータス: 演奏中・設定ロック中 ← Master FINISH待ち】", 760, 585);
   } else {
     fill(0, 153, 76);
-    text("【ステータス: 待機中・編集可能】", 760, 585);
+    text(childMode ? "【いまのじょうたい: じゅんびOK】" : "【ステータス: 待機中・編集可能】", 760, 585);
   }
   textAlign(LEFT);
 
@@ -273,13 +276,15 @@ void draw() {
     bearWin.bearPlaying = isPlaying;
   }
 
-  drawRunResultPanel();
+  // ランキングはクマアニメーション画面だけに表示する。
 }
 
 // ==========================================
 // 3. キーボード入力
 // ==========================================
 void keyPressed() {
+  if (appMode == 0) return;
+
   if (key == CODED) {
     // BPM変更は演奏中でも常に許可
     if (keyCode == UP)   bpm = min(180, bpm + 10);
@@ -312,6 +317,8 @@ void keyPressed() {
 }
 
 void keyReleased() {
+  if (appMode == 0) return;
+
   if (key == ' ' && bearWin != null) {
     bearJumpKeyHeld = false;
   }
@@ -321,6 +328,17 @@ void keyReleased() {
 // 4. マウスクリック
 // ==========================================
 void mousePressed() {
+  if (appMode == 0) {
+    if (isHover(childModeX, childModeY, childModeW, childModeH)) {
+      appMode = 1;
+      startBearWindow();
+    } else if (isHover(adultModeX, adultModeY, adultModeW, adultModeH)) {
+      appMode = 2;
+      startBearWindow();
+    }
+    return;
+  }
+
   // ① 送信ボタン
   if (isHover(sendX, sendY, sendW, sendH)) {
     sendParametersToMaster();
@@ -337,7 +355,7 @@ void mousePressed() {
   if (isPlaying) return;
 
   // ② リセットボタン
-  if (isHover(resetX, resetY, resetW, resetH)) {
+  if (isHover(resetX, getResetButtonY(), resetW, resetH)) {
     resetOrder();
   }
 
@@ -381,6 +399,80 @@ boolean isHover(int x, int y, int w, int h) {
   return (mouseX > x && mouseX < x + w && mouseY > y && mouseY < y + h);
 }
 
+int getResetButtonY() {
+  return appMode == 1 ? resetY + 32 : resetY;
+}
+
+void drawModeSelectScreen() {
+  background(255, 252, 232);
+
+  noStroke();
+  fill(216, 233, 255);
+  ellipse(135, 120, 120, 120);
+  fill(224, 244, 225);
+  ellipse(655, 120, 120, 120);
+  fill(244, 220, 239);
+  ellipse(135, 430, 120, 120);
+  fill(225, 232, 250);
+  ellipse(655, 430, 120, 120);
+
+  fill(36, 92, 140);
+  textAlign(CENTER);
+  textSize(34);
+  text("だれが つかうの？", width / 2, 170);
+  textSize(18);
+  fill(92, 122, 145);
+  text("えらんでから えんそうの じゅんびを します", width / 2, 210);
+
+  drawModeButton(childModeX, childModeY, childModeW, childModeH, "こども", color(255, 177, 66), color(255, 137, 42));
+  drawModeButton(adultModeX, adultModeY, adultModeW, adultModeH, "大人", color(0, 204, 102), color(0, 153, 76));
+
+  textAlign(LEFT);
+}
+
+void drawModeButton(int x, int y, int w, int h, String label, int baseColor, int hoverColor) {
+  boolean hovered = isHover(x, y, w, h);
+  fill(hovered ? hoverColor : baseColor);
+  stroke(hovered ? color(90) : color(255));
+  strokeWeight(hovered ? 3 : 2);
+  rect(x, y, w, h, 12);
+  noStroke();
+  fill(255);
+  textAlign(CENTER, CENTER);
+  textSize(28);
+  text(label, x + w / 2, y + h / 2 - 2);
+  textAlign(LEFT, BASELINE);
+}
+
+void startBearWindow() {
+  if (bearWin != null) return;
+
+  // クマアニメーションウィンドウを起動
+  bearWin = new BearWindow();
+
+  // クマの画像はメインスケッチ(this)側でloadImage()してから渡す．
+  // ※ runSketch()で開く別ウィンドウ(BearWindow)内で直接loadImage()すると，
+  //   セカンドアプレットのsketchPathが正しく解決されず
+  //   （Processing IDEの実行ボタンでは特に発生しやすい既知の不具合），
+  //   data フォルダの画像が見つからずnullになることがあるため，
+  //   必ずメインスケッチ側で読み込んでから渡す．
+  bearWin.bearWalk1Img  = loadImage("kuma_walk1-1.png");
+  bearWin.bearWalk2Img  = loadImage("kuma_walk2-1.png");
+  bearWin.bearJumpImg   = loadImage("kuma_jump2.png");
+  bearWin.bearDamageImg = loadImage("kuma_damage2.png");
+
+  // 背景・地形・障害物の画像も同様にメインスケッチ側で読み込んでから渡す
+  bearWin.skyImg        = loadImage("Sky.png");
+  bearWin.groundImg     = loadImage("ground.png");
+  bearWin.cloudImgs[0]  = loadImage("Cloud1.png");
+  bearWin.cloudImgs[1]  = loadImage("Cloud2.png");
+  bearWin.treeImgs[0]   = loadImage("Tree1.png");
+  bearWin.treeImgs[1]   = loadImage("Tree2.png");
+  bearWin.stoneImg      = loadImage("Stone.png");
+
+  PApplet.runSketch(new String[]{"クマアニメーション"}, bearWin);
+}
+
 void resetOrder() {
   for (int i = 0; i < 3; i++) {
     playOrder[i] = 0;
@@ -402,6 +494,7 @@ void drawRunResultPanel() {
     return;
   }
 
+  boolean childMode = appMode == 1;
   float panelX = 560;
   float panelY = 70;
   float panelW = 210;
@@ -412,12 +505,12 @@ void drawRunResultPanel() {
   rect(panelX + 4, panelY + 4, panelW, panelH, 12);
   fill(255);
   rect(panelX, panelY, panelW, panelH, 12);
-  fill(40);
-  textSize(16);
-  text("演奏結果", panelX + 14, panelY + 14);
-  textSize(13);
-  text("今回の獲得コイン: " + bearWin.getCurrentRunScore(), panelX + 14, panelY + 40);
-  text("ランキング", panelX + 14, panelY + 64);
+  fill(childMode ? color(36, 92, 140) : color(40));
+  textSize(childMode ? 18 : 16);
+  text(childMode ? "えんそうのけっか" : "演奏結果", panelX + 14, panelY + 14);
+  textSize(childMode ? 14 : 13);
+  text((childMode ? "もらったコイン: " : "今回の獲得コイン: ") + bearWin.getCurrentRunScore(), panelX + 14, panelY + 40);
+  text(childMode ? "じゅんい" : "ランキング", panelX + 14, panelY + 64);
 
   String[] lines = bearWin.getRankingLines();
   for (int i = 0; i < lines.length; i++) {

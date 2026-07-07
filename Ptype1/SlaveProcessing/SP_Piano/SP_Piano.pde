@@ -68,7 +68,7 @@ void setup() {
 
   printArray(Serial.list());
   // ★ ポート番号を環境に合わせて変更
-  slavePort = new Serial(this, Serial.list()[4], 9600);
+  slavePort = new Serial(this, Serial.list()[3], 115200);
   slavePort.bufferUntil('\n');
 
   println("SlaveProcessing（ピアノ）起動");
@@ -88,7 +88,8 @@ void draw() {
 
 // ------------------------------------------------------------
 // Slave ArduinoからSerial受信
-// フォーマット："pitch,duration\n"（pitchはMIDIノート番号）
+// フォーマット："pitch,duration\n"（旧プロトコル，pitchはMIDIノート番号）
+//        または "pitch1,pitch2,pitch3,duration\n"（SA_ptype2: ト音/ヘ音3和音，0=休符）
 // ------------------------------------------------------------
 void serialEvent(Serial p) {
   String line = trim(p.readStringUntil('\n'));
@@ -101,18 +102,24 @@ void serialEvent(Serial p) {
   }
 
   String[] parts = split(line, ',');
-  if (parts.length < 2) return;
+  if (parts.length != 2 && parts.length != 4) return;
 
-  int midiNote = int(parts[0]);
-  float durSec = int(parts[1]) / 1000.0;  // ms → 秒
+  // 最後の項目が常にduration（旧プロトコルはparts[1]，ptype2は parts[3]）
+  float durSec = int(parts[parts.length - 1]) / 1000.0;  // ms → 秒
 
-  // MIDIノート番号 → 周波数
-  float freq = 440.0 * pow(2.0, (midiNote - 69) / 12.0);
+  // 残りの項目（1〜3個）をそれぞれ和音として再生（0=休符はスキップ）
+  for (int i = 0; i < parts.length - 1; i++) {
+    int midiNote = int(parts[i]);
+    if (midiNote <= 0) continue;
 
-  // ピアノ音色で再生
-  out.playNote(0.0, durSec, new Piano(freq, 0.6));
+    // MIDIノート番号 → 周波数
+    float freq = 440.0 * pow(2.0, (midiNote - 69) / 12.0);
 
-  println("再生 midi:" + midiNote + " freq:" + nf(freq, 0, 1) + "Hz dur:" + durSec + "s");
+    // ピアノ音色で再生
+    out.playNote(0.0, durSec, new Piano(freq, 0.6));
+
+    println("再生 midi:" + midiNote + " freq:" + nf(freq, 0, 1) + "Hz dur:" + durSec + "s");
+  }
 }
 
 void stop() {

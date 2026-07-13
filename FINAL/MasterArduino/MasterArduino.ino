@@ -141,7 +141,7 @@ void loop() {
       waiting = false; 
 
       if (tickCount >= 208) {
-        // 208回目の待機が完了 ➔ 最終待機へ移行
+        // 208回目の待機が完了 → 最終待機へ移行
         finishWaiting = true;
 
         // 小数の切り捨てを防ぐため，先に15000を掛け算してから割る

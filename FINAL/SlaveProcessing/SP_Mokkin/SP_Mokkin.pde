@@ -55,10 +55,12 @@ void setup() {
   size(400, 200);
   minim = new Minim(this);
   out   = minim.getLineOut();
+  PFont font = createFont("Meiryo", 50);
+  textFont(font);
 
   printArray(Serial.list());
   // ★ ポート番号を環境に合わせて変更
-  slavePort = new Serial(this, Serial.list()[4], 9600);
+  slavePort = new Serial(this, Serial.list()[3], 115200);
   slavePort.bufferUntil('\n');
 
   println("SlaveProcessing（木琴）起動");
@@ -78,7 +80,8 @@ void draw() {
 
 // ------------------------------------------------------------
 // Slave ArduinoからSerial受信
-// フォーマット："pitch,duration\n"（pitchはMIDIノート番号）
+// フォーマット："pitch0,pitch1,pitch2,duration\n"（0=休符、durationはms）
+// 1Tickにつき，ト音部・ヘ音部の2行が届く
 // ------------------------------------------------------------
 void serialEvent(Serial p) {
   String line = trim(p.readStringUntil('\n'));
@@ -91,18 +94,19 @@ void serialEvent(Serial p) {
   }
 
   String[] parts = split(line, ',');
-  if (parts.length < 2) return;
+  if (parts.length != 4) return;
 
-  int midiNote = int(parts[0]);
-  float durSec = int(parts[1]) / 1000.0;  // ms → 秒
+  int midi0    = int(trim(parts[0]));
+  int midi1    = int(trim(parts[1]));
+  int midi2    = int(trim(parts[2]));
+  float durSec = int(trim(parts[3])) / 1000.0;  // ms → 秒
 
-  // MIDIノート番号 → 周波数
-  float freq = 440.0 * pow(2.0, (midiNote - 69) / 12.0);
+  // 3音を同時再生（0は休符としてスキップ）
+  if (midi0 != 0) out.playNote(0.0, durSec, new Marimba(440.0 * pow(2.0, (midi0 - 69) / 12.0), 0.6));
+  if (midi1 != 0) out.playNote(0.0, durSec, new Marimba(440.0 * pow(2.0, (midi1 - 69) / 12.0), 0.6));
+  if (midi2 != 0) out.playNote(0.0, durSec, new Marimba(440.0 * pow(2.0, (midi2 - 69) / 12.0), 0.6));
 
-  // 木琴音色で再生
-  out.playNote(0.0, durSec, new Marimba(freq, 0.6));
-
-  println("再生 midi:" + midiNote + " freq:" + nf(freq, 0, 1) + "Hz dur:" + durSec + "s");
+  println("再生 midi:" + midi0 + "/" + midi1 + "/" + midi2 + " dur:" + durSec + "s");
 }
 
 void stop() {

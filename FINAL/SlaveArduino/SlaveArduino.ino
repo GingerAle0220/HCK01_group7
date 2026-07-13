@@ -7,7 +7,7 @@
 #define MY_I2C_ADDRESS    0      // この楽器のI2Cアドレス
 #define SERIAL_BAUD       115200
 #define BASE_OCTAVE       4      // 楽譜の基準オクターブ（国際式4）
-#define INST_ID 1                // ピアノ=1, 木琴＝2, フルート=3, ドラム=4
+#define INST_ID 3                // ピアノ=1, 木琴＝2, フルート=3, ドラム=4
 
 // ドラム用定数（Drumslave_ver2.inoと同じ値）
 #define DRUM_HIHAT       2

@@ -24,7 +24,7 @@ PFont       jpFont;
 final int   BPM           = 120;
 final int   DEFAULT_VEL   = 100;   // チーム仕様に velocity 無し → 固定
 final float POLY_GAIN     = 0.3;   // 多重再生時のクリッピング対策（フルートはattackが長く音符が重なる）
-final int   SERIAL_BAUD   = 9600;
+final int   SERIAL_BAUD   = 115200;
 final int   OCTAVE_UP     = 12;     // フルートは他楽器より1オクターブ高く演奏する
 
 // ============================================================
@@ -185,7 +185,7 @@ void playSongFallback() {
   for (int i = 0; i < testPitch.length; i++) {
     if (testPitch[i] == 0) continue;  // 休符 or 継続スロット
     float f   = Frequency.ofMidiNote(testPitch[i] + PITCH_SHIFT).asHz();
-    float t   = (i * SLOT_MS) / 1000.0;        // スロット番号 × 250ms → 秒
+    float t   = (i * SLOT_MS) / 1000.0;        // スロット番号 * 250ms → 秒
     float dur = testDurationMs[i] / 1000.0;
     out.playNote(t, dur, new Flute(f, 0.5));
   }
@@ -200,12 +200,12 @@ void setup() {
   minim = new Minim(this);
   out   = minim.getLineOut();
   // Minimのplayote(start,dur,...)は「拍」で解釈される。
-  // tempo=60にして1拍=1秒にすることで，ms÷1000で渡した値がそのまま秒として再生される。
+  // tempo=60にして1拍=1秒にすることで，ms/1000で渡した値がそのまま秒として再生される。
   out.setTempo(60);
   
   printArray(Serial.list());
   // ★ ポート番号を環境に合わせて変更
-  slavePort = new Serial(this, Serial.list()[3], 9600);
+  slavePort = new Serial(this, Serial.list()[2], SERIAL_BAUD);
   slavePort.bufferUntil('\n');
 
   println("SlaveProcessing（フルート）起動");

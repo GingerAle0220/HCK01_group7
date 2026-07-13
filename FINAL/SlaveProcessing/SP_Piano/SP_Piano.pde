@@ -68,7 +68,7 @@ void setup() {
 
   printArray(Serial.list());
   // ★ ポート番号を環境に合わせて変更
-  slavePort = new Serial(this, Serial.list()[3], 115200);
+  slavePort = new Serial(this, Serial.list()[3], 9600);
   slavePort.bufferUntil('\n');
 
   println("SlaveProcessing（ピアノ）起動");

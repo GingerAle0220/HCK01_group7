@@ -70,8 +70,8 @@ void setup() {
   // 実機を接続する場合はコメントアウトを解除・ポート番号を合わせる
   
   try {
-    String portName = "/dev/cu.usbmodem34B7DA6196202"; // 使用するポートを選択
-    myPort = new Serial(this, portName, 9600);
+    String portName = Serial.list()[3];; // 使用するポートを選択
+    myPort = new Serial(this, portName, 115200);
     myPort.bufferUntil('\n'); // 改行コードが来るまでデータを溜める
     isSerialConnected = true;
   } catch (Exception e) {

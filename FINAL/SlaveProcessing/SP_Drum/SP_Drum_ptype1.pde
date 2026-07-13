@@ -61,7 +61,7 @@ void setup() {
 
   printArray(Serial.list());
   // ★ ポート番号を環境に合わせて変更
-  drumPort = new Serial(this, Serial.list()[0], 9600);
+  drumPort = new Serial(this, Serial.list()[0], 115200);
   drumPort.bufferUntil('\n');
   println("DrumProcessing 起動");
 }
